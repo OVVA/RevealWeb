@@ -7,89 +7,68 @@
         <meta name="description" content="Reveal is mobile application to trace your travels, compare with historical legends, make your mark on the world map" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-        <link href="css/theme-tangerine.css" rel="stylesheet" type="text/css" media="all" />
         <link href="css/stack-interface.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="css/theme-tangerine.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="css/custom.css" rel="stylesheet" type="text/css" media="all" />
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:200,300,400,400i,500,600,700" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500" rel="stylesheet" type="text/css">
-        <link href="css/font-raleway.css" rel="stylesheet" type="text/css">
-        <link rel="shortcut icon" type="image/png" sizes="32x32" href="ico/favicon-32x32.png">v
+        <link rel="shortcut icon" type="image/png" sizes="32x32" href="ico/favicon-32x32.png">
     </head>
-    <body class=" ">
-        <a id="start"></a>
+    <body data-smooth-scroll-offset="77">
         <div class="nav-container">
-            <div class="bar bar--sm visible-xs">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xs-3 col-sm-2">
-                            <a href="index.html">
-                                <img class="logo logo-dark" alt="logo" src="img/OVVA_blue.svg" />
-                                <img class="logo logo-light" alt="logo" src="img/OVVA_white.svg" />
-                            </a>
-                        </div>
-                        <div class="col-xs-9 col-sm-10 text-right">
-                            <a href="#" class="hamburger-toggle" data-toggle-class="#menu1;hidden-xs">
-                                <i class="icon icon--sm stack-interface stack-menu"></i>
-                            </a>
+            <div>
+                <div class="bar bar--sm visible-xs">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-3 col-md-2">
+                                <a href="index.html"> <img class="logo logo-dark" alt="logo" src="img/logo-dark.png"> <img class="logo logo-light" alt="logo" src="img/logo-light2.png"> </a>
+                            </div>
+                            <div class="col-9 col-md-10 text-right">
+                                <a href="#" class="hamburger-toggle" data-toggle-class="#menu1;hidden-xs hidden-sm"> <i class="icon icon--sm stack-interface stack-menu"></i> </a>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <nav id="menu1" class="bar bar-1 hidden-xs bg--dark bar--absolute bar--transparent">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-1 col-md-2 hidden-xs">
+                                <div class="bar__module">
+                                    <a href="index.html"> <img class="logo logo-dark" alt="logo" src="img/logo-dark.png"> <img class="logo logo-light" alt="logo" src="img/logo-light.png"> </a>
+                                </div>
+                            </div>
+                            <div class="col-lg-11 col-md-12 text-right text-left-xs text-left-sm">
+                                <div class="bar__module">
+                                    <ul class="menu-horizontal text-left">
+                                        <li class="h4"> <a href="/">Home</a> </li>
+                                        <li class="h4"> <a href="index.html#contact" class="inner-link">Contact</a> </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
             </div>
-            <nav id="menu1" class="bar bar-1 hidden-xs bar--absolute bar--transparent">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-1 col-sm-2 hidden-xs">
-                            <div class="bar__module">
-                                <a href="index.html">
-                                    <img class="logo logo-dark" alt="logo" src="img/OVVA_blue.svg" />
-									<img class="logo logo-light" alt="logo" src="img/OVVA_white.svg" />
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-11 col-sm-12 text-right text-left-xs text-left-sm">
-                            <div class="bar__module">
-                                <ul class="menu-horizontal text-left">
-                                    <li><a href="index.html">Home</a></li>
-                                    <li> <a href="contact.html">Contact</a> </li>
-                                    <li class="dropdown">
-                                        <span class="dropdown__trigger">More</span>
-                                        <div class="dropdown__container">
-                                            <div class="container">
-                                                <div class="row">
-                                                    <div class="dropdown__content col-md-2 col-sm-4">
-                                                        <ul class="menu-vertical">
-                                                            <li><a href="portfolio.html">Portfolio</a></li>
-                                                            <li><a href="pricing.html">Pricing</a></li>
-                                                            <li><a href="about.html">About</a></li>
-                                                        </ul>
-                                                    </div>                                            
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </nav>
         </div>
+
         <div class="main-container">
             <section class="cover height-100 imagebg text-center" data-overlay="7">
                 <div class="background-image-holder">
-                    <img alt="background" src="img/inner-6.jpg" />
+                    <img alt="background" src="img/web4.jpg" />
                 </div>
                 <div class="container pos-vertical-center">
                     <div class="row">
                         <div class="col-sm-12">
                             <h1 class="h1--large">500</h1>
-                            <p class="lead">
-                                An unexpected error has occured preventing the page from loading.
-                            </p>
+                            <p class="lead">An unexpected error has occured preventing the page from loading.</p>
                             <a href="index.html">Go back to home page</a>
                         </div>
                     </div>
                 </div>
             </section>
         </div>
+        <script src="js/jquery-3.1.1.min.js"></script>
+        <script src="js/parallax.js"></script>
+        <script src="js/smooth-scroll.min.js"></script>
+        <script src="js/scripts.js"></script>
     </body>
 </html>
