@@ -16,6 +16,7 @@
         <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500" rel="stylesheet" type="text/css">
         <link href="css/font-raleway.css" rel="stylesheet" type="text/css">
         <link href="css/flickity.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
         <link rel="apple-touch-icon" sizes="180x180" href="ico/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="ico/favicon-32x32.png">
@@ -63,12 +64,12 @@
                 </div>
                 <div class="side-menu__module pos-bottom pos-absolute col-12 text-right">
                     <ul class="social-list list-inline list--hover">
-                        <li><a href="#"><i class="socicon icon socicon-telegram icon--xs"></i></a></li>
-                        <li><a href="#"><i class="socicon icon socicon-strava icon--xs"></i></a></li>
-                        <li><a href="#"><i class="socicon icon socicon-discord icon--xs"></i></a></li>
-                        <li><a href="#"><i class="socicon socicon-twitter icon icon--xs"></i></a></li>
-                        <li><a href="https://www.facebook.com/profile.php?id=61559915241169"><i class="socicon socicon-facebook icon icon--xs"></i></a></li>
-                        <li><a href="https://www.instagram.com/reveal.your.map"><i class="socicon socicon-instagram icon icon--xs"></i></a></li>
+                        <li><a target="_blank" href="https://t.me/+TPGVN8Iv_Qo0NzI6"><i class="socicon icon socicon-telegram icon--xs"></i></a></li>
+                        <li><a target="_blank" href="https://www.strava.com/clubs/cyclebratislava-ru"><i class="socicon icon socicon-strava icon--xs"></i></a></li>
+                        <li><a target="_blank" href="#"><i class="socicon icon socicon-discord icon--xs"></i></a></li>
+                        <li><a target="_blank" href="#"><i class="socicon socicon-twitter icon icon--xs"></i></a></li>
+                        <li><a target="_blank" href="https://www.facebook.com/profile.php?id=61559915241169"><i class="socicon socicon-facebook icon icon--xs"></i></a></li>
+                        <li><a target="_blank" href="https://www.instagram.com/reveal.your.map"><i class="socicon socicon-instagram icon icon--xs"></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -119,8 +120,8 @@
                     </div>
                 </div>
             </section>
+            <a id="contact"></a>
             <section class="text-center imagebg" data-gradient-bg="#EF4136,#FAA917,#702200,#8F48BD">
-                <a id="contact"></a>
                 <div class="container">
                     <div class="row">
                         <div class="col-md-8 col-lg-6">
@@ -128,11 +129,11 @@
                                 <h2><b>Join the Reveal Community</b></h2>
                                 <p class="lead">Sign up now to start your journey, track your adventures, and compare with history's greatest explorers</p> 
                                 <a class="btn bg--googleplus btn--icon type--uppercase" href="https://www.instagram.com/reveal.your.map" target="_blank">
-                                    <span class="btn__text"><i class="icon-class icon-Instagram"></i>Follow Us</span>
+                                    <span class="btn__text"><i class="socicon socicon-instagram"></i>Follow Us</span>
                                 </a>
                                 <br class="hidden-sm hidden-lg hidden-xl">
                                 <a class="btn bg--facebook btn--icon type--uppercase" href="https://www.facebook.com/profile.php?id=61559915241169" target="_blank">
-                                    <span class="btn__text"><i class="icon-class icon-Facebook"></i>Join Us</span>
+                                    <span class="btn__text"><i class="socicon socicon-facebook"></i>Join Us</span>
                                 </a>    
                     </a> </div>
                         </div>
@@ -276,12 +277,34 @@
                             <div class="cta">
                                 <h2>Ready to Start Your Adventure?</h2>
                                 <p class="lead">Download Reveal now and embark on a journey of discovery and comparison.</p>
-                                <a class="btn btn--primary btn--icon type--uppercase" href="#">
-                                    <span class="btn__text"><i class="icon-class icon-Download-2"></i>Download now</span>
-                                </a>    
-                                <a class="btn btn--secondary-2 hidden-xs btn--icon" href="#">
-                                    <span class="btn__text"><i class="icon-class icon-Information"></i>Learn more</span>
-                                </a>
+                                    <div class="modal-instance">    
+                                        <a class="btn btn--primary btn--icon type--uppercase mb-0 modal-trigger" href="#" data-notification-link="trigger">
+                                            <span class="btn__text"><i class="icon-class icon-Download-2"></i>Download now</span>
+                                        </a>    
+                                        <a class="btn btn--secondary-2 btn--icon hidden-xs inner-link" href="#feat">
+                                            <span class="btn__text"><i class="icon-class icon-Information"></i>Learn more</span>
+                                        </a> 
+                                        <div class="modal-container">
+                                            <div class="modal-content">
+                                                <div class="boxed boxed--lg">
+                                                    <h2>Public Beta Test</h2>
+                                                    <hr class="short">
+                                                    <p class="lead">Dear valued explorers,</p>
+                                                    <p>Thank you for your interest in our discovery app. We wanted to let you know that 
+                                                    the public beta test has been postponed. Our team is dedicated to delivering a top-quality 
+                                                    experience, and we need a bit more time to ensure everything meets our high standards.</p>
+                                                    <p>We apologize for any inconvenience this delay may cause and appreciate your 
+                                                    understanding and patience. Our goal is to provide you with a seamless and enjoyable 
+                                                    experience, and this extra time will allow us to fine-tune the app to meet your expectations.</p>
+                                                    <p>Thank you for your continued support and enthusiasm. We look forward to sharing 
+                                                    more updates with you soon and can't wait for you to experience what we've been working on.</p>
+                                                    <p>Warm regards,<br>The <b>Reveal App</b> Team</p> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!--end of modal instance-->
+                                    
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -292,10 +315,10 @@
                     <div class="row">
                         <div class="col-sm-6">
                             <ul class="list-inline list--hover">
-                                <li> <a href="#feat"><span>Feature</span></a> </li>
-                                <li> <a href="#roadmap"><span>Development Roadmap</span></a> </li>
-                                <li> <a href="#"><span>Our Team</span></a> </li>
-                                <li> <a href="#contact"><span>Locations</span></a> </li>
+                                <li> <a href="#feat" class="inner-link"><span>Feature</span></a> </li>
+                                <li> <a href="#roadmap" class="inner-link"><span>Development Roadmap</span></a> </li>
+                                <li> <a href="#" class="inner-link"><span>Our Team</span></a> </li>
+                                <li> <a href="#contact" class="inner-link"><span>Locations</span></a> </li>
                             </ul>
                         </div>
                         <div class="col-sm-6 text-right text-center-sm text-center-xs">
@@ -308,11 +331,58 @@
                                 <li><a href="https://www.facebook.com/profile.php?id=61559915241169" target="_blank"><i class="socicon socicon-facebook icon icon--xs"></i></a></li>
                                 
                             </ul>
-                            <a href="#" class="btn btn--icon"> <span class="btn__text"><i class="icon-class  icon-Email"></i>Contact Us</span> </a>
+                            <div class="modal-instance">  
+                                <a href="#" class="btn btn--icon modal-trigger" href="#" data-notification-link="trigger"> <span class="btn__text"><i class="icon-class  icon-Email"></i>Contact Us</span> </a>
+                                <div class="modal-container">
+                                    <div class="modal-content">
+                                        <div class="boxed boxed--md">
+                                            <h2>Drop us a line</h2>
+                                            <hr class="short">
+                                            <div class="col-10">
+                                                Reach us on social media pagest or drop by anytime, we endeavour to answer all enquiries within 24 hours on business days.
+                                                <br><br>
+                                            </div>    
+                                            <div class="col-12">
+                                                <form class="text-left form-email row mx-0" data-success="Thanks for your enquiry, we'll be in touch shortly." data-error="Please fill in all fields correctly." novalidate="true">
+                                                    <div class="col-12">
+                                                        <div class="input-icon">
+                                                            <i class="material-icons">person</i>
+                                                            <input type="text" name="name" class="validate-required" placeholder="Your Name">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <div class="input-icon">
+                                                            <i class="material-icons">email</i>
+                                                            <input type="email" name="email" class="validate-required" placeholder="Email Adress">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <label>Message:</label>
+                                                        <textarea rows="6" name="Message" class="validate-required"></textarea>
+                                                    </div>
+                                                    <div class="col-8">
+                                                        <div class="input-checkbox input-checkbox--switch validate-required">
+                                                            <input id="checkbox-switch" type="checkbox" name="agree">
+                                                            <label for="checkbox-switch"></label>
+                                                        </div>
+                                                        <span>I have read and agree to the <a href="privacy-policy.html" target="_blank">terms and conditions</a></span>
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <button type="submit" class="btn btn--primary type--uppercase">Send Enquiry</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!--end of modal instance-->
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-sm-12"> <img alt="Image" class="logo" src="img/logo-dark.png"> <span class="type--fine-print">© <span class="update-year"></span> OVVA s.r.o.</span> <a class="type--fine-print" href="privacy-policy.html">Privacy Policy</a> <a class="type--fine-print" href="404.html">Terms and Conditions</a> </div>
+                        <div class="col-sm-12"> <img alt="Image" class="logo" src="img/logo-dark.png"> 
+                            <span class="type--fine-print">© <span class="update-year"></span> OVVA s.r.o.</span> 
+                            <a class="type--fine-print" href="privacy-policy.html">Privacy Policy</a> 
+                            <a class="type--fine-print" href="404.html">Terms and Conditions</a> </div>
                     </div>
                 </div>
             </footer>
