@@ -9,9 +9,12 @@
         <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
         <link href="css/theme-tangerine.css" rel="stylesheet" type="text/css" media="all" />
         <link href="css/stack-interface.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="css/socicon.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="css/iconsmind.css" rel="stylesheet" type="text/css" media="all" />
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:200,300,400,400i,500,600,700" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500" rel="stylesheet" type="text/css">
         <link href="css/font-raleway.css" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="shortcut icon" type="image/png" sizes="32x32" href="ico/favicon-32x32.png">
     </head>
     <body data-smooth-scroll-offset="77">
@@ -138,7 +141,7 @@
                             <p>We may update this privacy policy from time-to-time, particularly as technology changes. You can always check this page for the latest version. We may also notify you of changes to our privacy policy by email.</p>
                             <h4>Any questions?</h4>
                             <p>If you have any questions about this privacy policy or your personal data, please write to us by email to <a href="mailto:support@ovva.sk">support@ovva.sk</a> or by post to OVVA, s.r.o., Staré Grunty 18, 841 04 Bratislava - Karlova Ves, Slovakia</p>
-                            <p class="text-right">01.09.2017</p>
+                            <p class="text-right">01.05.2024</p>
                         </div>
                     </div>
                     <!--end of row-->
@@ -150,30 +153,81 @@
                     <div class="row">
                         <div class="col-sm-6">
                             <ul class="list-inline list--hover">
-                                <li> <a href="about.html"><span>Our Company</span></a></li>
-                                <li> <a href="contact.html"><span>Contacts</span></a></li>
-                                <li> <a href="pricing.html"><span>Products price</span></a></li>
+                                <li> <a href="#feat" class="inner-link"><span>Feature</span></a> </li>
+                                <li> <a href="#roadmap" class="inner-link"><span>Development Roadmap</span></a> </li>
+                                <li> <a href="#" class="inner-link"><span>Our Team</span></a> </li>
+                                <li> <a href="#contact" class="inner-link"><span>Locations</span></a> </li>
                             </ul>
                         </div>
-                        <div class="col-sm-6 text-right text-center-xs">
+                        <div class="col-sm-6 text-right text-center-sm text-center-xs">
                             <ul class="social-list list-inline list--hover">
-                                <li><a href="https://www.facebook.com/ovva.web/" target="_blank"><i class="socicon socicon-facebook icon icon--xs"></i></a></li>
-                                <li><a href="https://twitter.com/fliros" target="_blank"><i class="socicon socicon-twitter icon icon--xs"></i></a></li>
-                                <li><a href="https://www.linkedin.com/in/fliros/" target="_blank"><i class="socicon socicon-linkedin icon icon--xs"></i></a></li>
+                                <li><a target="_blank" href="https://www.instagram.com/reveal.your.map"><i class="socicon socicon-instagram icon icon--xs"></i></a></li>
+                                <li><a target="_blank" href="https://www.facebook.com/profile.php?id=61559915241169"><i class="socicon socicon-facebook icon icon--xs"></i></a></li>
+                                <li><a target="_blank" href="https://t.me/+TPGVN8Iv_Qo0NzI6"><i class="socicon icon socicon-telegram icon--xs"></i></a></li>
+                                <li><a target="_blank" href="https://www.strava.com/clubs/cyclebratislava-ru"><i class="socicon icon socicon-strava icon--xs"></i></a></li>
+                                <li><a target="_blank" href="#"><i class="socicon icon socicon-discord icon--xs"></i></a></li>
+                                <li><a target="_blank" href="#"><i class="socicon socicon-twitter icon icon--xs"></i></a></li>
                             </ul>
-                            <a href="contact.html" class="btn type--uppercase" target="_self"> 
-                                <span class="btn__text">Contact Us</span> 
-                            </a>
+                            <div class="modal-instance">  
+                                <a href="#" class="btn btn--icon modal-trigger" href="#" data-notification-link="trigger"> 
+                                    <span class="btn__text"><i class="icon-class icon-Mail"></i>Contact Us</span> </a>
+                                <div class="modal-container">
+                                    <div class="modal-content">
+                                        <div class="boxed boxed--md">
+                                            <h2>Drop us a line</h2>
+                                            <hr class="short">
+                                            <div class="col-10">
+                                                Reach us on social media pagest or drop by anytime, we endeavour to answer all enquiries within 24 hours on business days.
+                                                <br><br>
+                                            </div>    
+                                            <div class="col-12">
+                                                <form class="text-left form-email row mx-0" data-success="Thanks for your enquiry, we'll be in touch shortly." data-error="Please fill in all fields correctly." novalidate="true">
+                                                    <div class="col-12">
+                                                        <div class="input-icon">
+                                                            <i class="material-icons">person</i>
+                                                            <input type="text" name="name" class="validate-required" placeholder="Your Name">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <div class="input-icon">
+                                                            <i class="material-icons">email</i>
+                                                            <input type="email" name="email" class="validate-required" placeholder="Email Adress">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <label>Message:</label>
+                                                        <textarea rows="6" name="Message" class="validate-required"></textarea>
+                                                    </div>
+                                                    <div class="col-8">
+                                                        <div class="input-checkbox input-checkbox--switch validate-required">
+                                                            <input id="checkbox-switch" type="checkbox" name="agree">
+                                                            <label for="checkbox-switch"></label>
+                                                        </div>
+                                                        <span>I have read and agree to the <a href="privacy-policy.html" target="_blank">terms and conditions</a></span>
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <button type="submit" class="btn btn--primary type--uppercase">Send Enquiry</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!--end of modal instance-->
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-sm-12"> 
-                            <img alt="Image" class="logo" src="img/logo-light2.png"> 
-                            <span class="type--fine-print">© <span class="update-year"></span> OVVA s.r.o.</span> <a class="type--fine-print" href="#">Privacy Policy</a>
-                            <a class="type--fine-print" href="legal.html">Legal</a> </div>
+                        <div class="col-sm-12"> <img alt="Image" class="logo" src="img/logo-dark.png"> 
+                            <span class="type--fine-print">© <span class="update-year"></span> OVVA s.r.o.</span> 
+                            <a class="type--fine-print" href="privacy-policy.html">Privacy Policy</a> 
+                            <a class="type--fine-print" href="404.html">Terms and Conditions</a> </div>
                     </div>
                 </div>
             </footer>
         </div>
+        <a class="back-to-top inner-link" href="#start" data-scroll-class="50vh:active"><i class="stack-interface stack-up-open-big"></i></a>
+        <script src="js/jquery-3.1.1.min.js"></script>
+        <script src="js/smooth-scroll.min.js"></script>
+        <script src="js/scripts.js"></script>
     </body>
 </html>
