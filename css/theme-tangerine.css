@@ -555,7 +555,7 @@ img {
   transition: opacity .3s linear;
   -webkit-transition: opacity .3s linear;
   opacity: 0;
-  background: #252525;
+  background: #0b1e35;
 }
 .background-image-holder:not([class*='col-']) {
   width: 100%;
@@ -578,7 +578,7 @@ img {
 [data-overlay]:before {
   position: absolute;
   content: '';
-  background: #252525;
+  background: #0b1e35;
   width: 100%;
   height: 100%;
   top: 0;
@@ -1679,7 +1679,7 @@ img + .boxed {
   display: none;
 }
 .slides:not(.flickity-enabled) li.imagebg:first-child {
-  background: #252525;
+  background: #0b1e35;
   animation: backgroundLoad .5s ease alternate infinite;
 }
 .slides:not(.flickity-enabled) li.imagebg:first-child .container {
@@ -1687,7 +1687,7 @@ img + .boxed {
 }
 @keyframes backgroundLoad {
   0% {
-    background: #252525;
+    background: #0b1e35;
   }
   100% {
     background: #3f3f3f;
@@ -1839,7 +1839,7 @@ img + .boxed {
   margin: 0;
 }
 .slider.controls--dark .flickity-page-dots .dot {
-  background: #252525;
+  background: #0b1e35;
 }
 .slider.controls--dark .flickity-prev-next-button:before {
   color: #252525;
@@ -1999,7 +1999,7 @@ section.bg--primary .slider[data-paging="true"] .flickity-page-dots .dot {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #252525;
+  background: #0b1e35;
   border: none;
   margin: 0 0.46428571em;
 }
@@ -2488,7 +2488,7 @@ iframe {
   }
 }
 .videobg {
-  background: #252525;
+  background: #0b1e35;
   position: relative;
   overflow: hidden;
 }
@@ -2591,7 +2591,7 @@ iframe {
   max-width: 100%;
 }
 .video-cover iframe {
-  background: #252525;
+  background: #0b1e35;
 }
 .video-cover .background-image-holder {
   z-index: 3;
@@ -2673,7 +2673,7 @@ iframe {
 }
 .video-play-icon.video-play-icon--dark {
   border-color: #252525;
-  background: #252525;
+  background: #0b1e35;
 }
 .video-play-icon.video-play-icon--dark:before {
   border-color: transparent transparent transparent #252525;
@@ -2751,7 +2751,7 @@ a {
   color: #e23636;
 }
 .bg--dark {
-  background: #252525;
+  background: #0b1e35;
 }
 .bg--dark:not(.nav-bar):not(.bar) {
   color: #ffffff;
@@ -3169,7 +3169,7 @@ form[action*='list-manage.com'] .small-meta {
 /**! 33. Gradient BG **/
 [data-gradient-bg] {
   position: relative;
-  background: #252525;
+  background: #0b1e35;
 }
 [data-gradient-bg] > canvas {
   position: absolute;
@@ -3290,7 +3290,7 @@ form[action*='list-manage.com'] .small-meta {
     display: none;
   }
   .bar.pos-fixed.bg--dark {
-    background: #252525;
+    background: #0b1e35;
   }
 }
 @media all and (max-width: 767px) {
@@ -4832,7 +4832,7 @@ section.parallax .row .background-image-holder {
     margin-bottom: 1.85714286em;
   }
   .bar.bg--dark {
-    background: #252525;
+    background: #0b1e35;
   }
   .bar.bg--dark .hamburger-toggle i {
     color: #fff;
@@ -5151,7 +5151,7 @@ section.parallax .row .background-image-holder {
   position: relative;
   bottom: 8px;
   border-radius: 50%;
-  background: #252525;
+  background: #0b1e35;
 }
 .utility-toggle:before,
 .utility-toggle:after {
@@ -5160,7 +5160,7 @@ section.parallax .row .background-image-holder {
   height: 3px;
   border-radius: 50%;
   position: absolute;
-  background: #252525;
+  background: #0b1e35;
 }
 .utility-toggle:before {
   top: 6px;
@@ -5830,7 +5830,7 @@ p .material-icons:first-child {
   width: 1.23809524em;
   height: 1.23809524em;
   border-radius: 50%;
-  background: #252525;
+  background: #0b1e35;
   text-align: center;
   cursor: pointer;
 }
@@ -5879,7 +5879,7 @@ p .material-icons:first-child {
   top: -24px;
   left: 50%;
   transform: translateX(-50%);
-  background: #252525;
+  background: #0b1e35;
   color: #fff;
   border: 1px solid #e7e7e7;
   padding: 2px 12px;
@@ -6725,7 +6725,7 @@ a.block:hover > .feature {
   margin-left: 0.46428571em;
 }
 .video-cover {
-  background: #252525;
+  background: #0b1e35;
 }
 .video-cover.border--round {
   overflow: hidden;
@@ -7233,7 +7233,7 @@ a[data-lightbox]:hover {
   border-left: 1px dashed #ddd;
 }
 .bg--dark .process-3 li .process__number {
-  background: #252525;
+  background: #0b1e35;
 }
 .bg--dark .process-3:before {
   border-color: #aaa;
@@ -7995,7 +7995,7 @@ input[type="image"] {
   -webkit-transition: 0.3s ease;
   -moz-transition: 0.3s ease;
   border-radius: 0;
-  background: #252525;
+  background: #0b1e35;
   width: 2.78571429em;
   height: 5.57142857em;
 }
@@ -8003,7 +8003,7 @@ input[type="image"] {
   opacity: .5;
 }
 .flickity-prev-next-button:hover {
-  background: #252525;
+  background: #0b1e35;
 }
 .flickity-prev-next-button.previous {
   left: 0;
