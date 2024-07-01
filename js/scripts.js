@@ -1320,8 +1320,8 @@ mr = (function (mr, $, window, document){
         if($('.instafeed').length){
 
             // Replace with your own Access Token and Client ID
-            var token  = 'IGQWROWmZAZAZADQzRVg4OGJwakJhVjRQWHdUNXlQZAUlHSGtXSFoweVRKR0hZAUXFad3BaV05BNWpGYnJWRnR3SUo2ZAnRHMEZAFMlBhTnNpaWhpTTlkbWgyY1BUTVlGUkFuQWV2bkdhanB1aWNVUTJlT1o1Q1dLdVUwR1kZD',
-                client = '868466445310211',
+            var token  = null,
+                client = null,
                 elementToken, elementClient;
 
             if($('.instafeed[data-access-token][data-client-id]').length){
