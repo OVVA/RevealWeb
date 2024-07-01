@@ -1320,8 +1320,8 @@ mr = (function (mr, $, window, document){
         if($('.instafeed').length){
 
             // Replace with your own Access Token and Client ID
-            var token  = '4079540202.b9b1d8a.1d13c245c68d4a17bfbff87919aaeb14',
-                client = 'b9b1d8ae049d4153b24a6332f0088686',
+            var token  = 'IGQWROWmZAZAZADQzRVg4OGJwakJhVjRQWHdUNXlQZAUlHSGtXSFoweVRKR0hZAUXFad3BaV05BNWpGYnJWRnR3SUo2ZAnRHMEZAFMlBhTnNpaWhpTTlkbWgyY1BUTVlGUkFuQWV2bkdhanB1aWNVUTJlT1o1Q1dLdVUwR1kZD',
+                client = '868466445310211',
                 elementToken, elementClient;
 
             if($('.instafeed[data-access-token][data-client-id]').length){
@@ -1333,8 +1333,7 @@ mr = (function (mr, $, window, document){
             }
 
             jQuery.fn.spectragram.accessData = {
-                accessToken: token,
-                clientID: client
+                accessToken: token
             };  
         }
 
