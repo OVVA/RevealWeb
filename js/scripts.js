@@ -1317,19 +1317,19 @@ mr = (function (mr, $, window, document){
 
         var themeDefaults, options, ao = {};
         
-        if($('.instafeed').length){
+        if ($('.instafeed').length) {
 
-            // Replace with your own Access Token and Client ID
-            var token  = null,
+            // Replace with your own Access Token
+            var token  = 'YOUR_VALID_ACCESS_TOKEN',
                 client = null,
                 elementToken, elementClient;
 
-            if($('.instafeed[data-access-token][data-client-id]').length){
+            if ($('.instafeed[data-access-token][data-client-id]').length) {
                 elementToken = $('.instafeed[data-access-token][data-client-id]').first().attr('data-access-token');
                 elementClient = $('.instafeed[data-access-token][data-client-id]').first().attr('data-client-id');
 
-                if(elementToken !== ""){token = elementToken;}
-                if(elementClient !== ""){client = elementClient;}
+                if (elementToken !== "") { token = elementToken; }
+                if (elementClient !== "") { client = elementClient; }
             }
 
             jQuery.fn.spectragram.accessData = {
@@ -1338,17 +1338,17 @@ mr = (function (mr, $, window, document){
         }
 
         $('.instafeed').each(function(){
-            var feed   = $(this),
+            var feed = $(this),
                 feedID = feed.attr('data-user-name'),
                 fetchNumber = 12;
             
             themeDefaults = {
-                query: 'mediumrarethemes',
+                query: 'reveal.your.map',
                 max: 12
             };
 
             // Attribute Overrides taken from data attributes allow for per-feed customization
-            ao.max = feed.attr('data-amount')
+            ao.max = feed.attr('data-amount');
             ao.query = feed.attr('data-user-name');
 
             options = jQuery.extend({}, themeDefaults, mr.instagram.options, ao);
@@ -1362,6 +1362,7 @@ mr = (function (mr, $, window, document){
     return mr;
 
 }(mr, jQuery, window, document));
+
 
 //////////////// Maps
 mr = (function (mr, $, window, document){
