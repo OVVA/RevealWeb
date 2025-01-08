@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Reveal - Your personal Age of Discovery</title>
-        <meta name="description" content="Reveal is mobile application to trace your travels, compare with historical legends, make your mark on the world map" />
+        <meta name="description" content="Reveal is a mobile application to trace your travels, compare with historical legends, and make your mark on the world map." />
         <meta name="author" content="OVVA s.r.o.">
 
         <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
@@ -29,7 +29,7 @@
         <meta name="apple-mobile-web-app-title" content="Reveal">
         <meta name="application-name" content="Reveal">
         <meta name="msapplication-TileColor" content="#da532c">
-        <meta name="msapplication-config" content="/ico/browserconfig.xml">
+        <meta name="msapplication-config" content="ico/browserconfig.xml">
         <meta name="theme-color" content="#ffffff">
         
         <meta property="og:type" content="website">
@@ -37,7 +37,7 @@
         <meta property="og:title" content="Reveal - Your personal Age of Discovery">
         <meta property="og:image" content="https://revealapp.eu/img/og-image.jpg">
         <meta property="og:site_name" content="Reveal App">
-        <meta property="og:description" content="Reveal is mobile application to trace your travels, compare with historical legends, make your mark on the world map">
+        <meta property="og:description" content="Reveal is a mobile application to trace your travels, compare with historical legends, and make your mark on the world map.">
         <meta property="og:locale" content="en">
         <meta property="og:image:width" content="1300">
         <meta property="og:image:height" content="630">
@@ -49,13 +49,12 @@
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'G-BPW073ELTK');
-        gtag('consent', 'default', {
-            'ad_storage': 'denied',
-            'ad_user_data': 'denied',
-            'ad_personalization': 'denied',
-            'analytics_storage': 'denied'
-          });          
         </script>
+        
+        <!-- Add security headers -->
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:;">
+        <meta http-equiv="X-Content-Type-Options" content="nosniff">
+        <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
     </head>
     <body data-smooth-scroll-offset="77">
         <a id="start"></a>
@@ -90,7 +89,10 @@
                         <li><a target="_blank" href="https://t.me/+TPGVN8Iv_Qo0NzI6"><i class="socicon icon socicon-telegram icon--xs"></i></a></li>
                         <li><a target="_blank" href="https://www.strava.com/clubs/cyclebratislava-ru"><i class="socicon icon socicon-strava icon--xs"></i></a></li>
                         <li><a target="_blank" href="https://www.reddit.com/r/reveal_app/"><i class="socicon icon socicon-reddit icon--xs"></i></a></li>
+<<<<<<< Updated upstream
                         <!--li><a target="_blank" href="#"><i class="socicon socicon-twitter icon icon--xs"></i></a></li-->
+=======
+>>>>>>> Stashed changes
                         <li><a target="_blank" href="https://www.facebook.com/reveal.your.map"><i class="socicon socicon-facebook icon icon--xs"></i></a></li>
                         <li><a target="_blank" href="https://www.instagram.com/reveal.your.map"><i class="socicon socicon-instagram icon icon--xs"></i></a></li>
                         <li><a target="_blank" href="https://www.linkedin.com/company/reveal-map/"><i class="socicon socicon-linkedin icon icon--xs"></i></a></li>
@@ -335,7 +337,10 @@
                                 <li><a target="_blank" href="https://t.me/+TPGVN8Iv_Qo0NzI6"><i class="socicon icon socicon-telegram icon--xs"></i></a></li>
                                 <li><a target="_blank" href="https://www.strava.com/clubs/cyclebratislava-ru"><i class="socicon icon socicon-strava icon--xs"></i></a></li>
                                 <li><a target="_blank" href="https://www.reddit.com/r/reveal_app/"><i class="socicon icon socicon-reddit icon--xs"></i></a></li>
+<<<<<<< Updated upstream
                                 <li><a target="_blank" href="https://www.linkedin.com/company/reveal-map/"><i class="socicon socicon-linkedin icon icon--xs"></i></a></li>
+=======
+>>>>>>> Stashed changes
                             </ul>
                             <div class="modal-instance">
                                 <a class="btn btn--icon modal-trigger" href="#" data-modal-index="1">
@@ -347,7 +352,7 @@
                         <div class="col-sm-12"> <img alt="Reveal logo" class="logo" src="img/logo-dark.svg"> 
                             <span class="type--fine-print">© <span class="update-year"></span> OVVA s.r.o.</span> 
                             <a class="type--fine-print" href="privacy-policy.html">Privacy Policy</a> 
-                            <a class="type--fine-print" href="404.html">Terms and Conditions</a> </div>
+                            <a class="type--fine-print" href="terms.html">Terms and Conditions</a> </div>
                     </div>
                 </div>
             </footer>
@@ -474,13 +479,26 @@
             </div>
         </div>
         <!--<div class="loader"></div>-->
-        <a class="back-to-top inner-link" href="#start" data-scroll-class="50vh:active"><i class="stack-interface stack-up-open-big"></i></a>
-        <script src="js/jquery-3.1.1.min.js"></script>
-        <script src="js/flickity.min.js"></script>
-        <script src="js/parallax.js"></script>
-        <script src="js/granim.min.js"></script>
-        <script src="js/isotope.min.js"></script>
-        <script src="js/smooth-scroll.min.js"></script>
-        <script src="js/scripts.js"></script>
+        <a class="back-to-top inner-link" href="#start" data-scroll-class="50vh:active">
+            <i class="stack-interface stack-up-open-big"></i>
+        </a>
+        
+        <!-- Load non-critical scripts with defer -->
+        <script defer src="js/jquery-3.1.1.min.js"></script>
+        <script defer src="js/flickity.min.js"></script>
+        <script defer src="js/parallax.js"></script>
+        <script defer src="js/granim.min.js"></script>
+        <script defer src="js/isotope.min.js"></script>
+        <script defer src="js/smooth-scroll.min.js"></script>
+        <script defer src="js/scripts.js"></script>
+
+        <!-- Add service worker for offline capability -->
+        <script>
+            if ('serviceWorker' in navigator) {
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('js/sw.js');
+                });
+            }
+        </script>
     </body>
 </html>

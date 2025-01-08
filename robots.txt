@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Sitemap: https://revealapp.eu/sitemap.xml
+
+# Block access to specific folders
+Disallow: /css/
+Disallow: /js/
+Disallow: /ico/
