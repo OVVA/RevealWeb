@@ -1,259 +1,279 @@
-<!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Privacy policy - Reveal - Your personal Age of Discovery</title>
-        <meta name="description" content="Reveal is mobile application to trace your travels, compare with historical legends, make your mark on the world map" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-        <link href="css/theme-tangerine.css" rel="stylesheet" type="text/css" media="all" />
-        <link href="css/stack-interface.css" rel="stylesheet" type="text/css" media="all" />
-        <link href="css/socicon.css" rel="stylesheet" type="text/css" media="all" />
-        <link href="css/iconsmind.css" rel="stylesheet" type="text/css" media="all" />
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:200,300,400,400i,500,600,700" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500" rel="stylesheet" type="text/css">
-        <link href="css/font-raleway.css" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link rel="shortcut icon" href="ico/favicon.ico">
-        
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-BPW073ELTK"></script>
-        <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-BPW073ELTK');
-        gtag('consent', 'default', {
-            'ad_storage': 'denied',
-            'ad_user_data': 'denied',
-            'ad_personalization': 'denied',
-            'analytics_storage': 'denied'
-          });
-        </script>
-    </head>
-    <body data-smooth-scroll-offset="77">
-        <a id="start"></a>
-        <div class="nav-container">
-            <div>
-                <div class="bar bar--sm visible-xs">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-3 col-md-2">
-                                <a href="/"> 
-                                    <img class="logo logo-dark" alt="Reveal logo" src="img/logo-dark.svg">
-                                    <img class="logo logo-light" alt="Reveal logo" src="img/logo-light.svg">
-                                </a>
-                            </div>
-                            <div class="col-9 col-md-10 text-right">
-                                <a href="#" class="hamburger-toggle" data-toggle-class="#menu1;hidden-xs hidden-sm"> <i class="icon icon--sm stack-interface stack-menu"></i> </a>
-                            </div>
-                        </div>
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Reveal</title>
+    <meta name="description" content="Privacy Policy for Reveal - Learn how we protect your data and privacy." />
+    <meta name="author" content="OVVA s.r.o.">
+
+    <!-- Tailwind CSS -->
+    <link href="./assets/css/tailwind.css" rel="stylesheet">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="./assets/css/font-poppins.css" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/ico/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/ico/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/ico/favicon-16x16.png">
+    <link rel="manifest" href="./assets/ico/site.webmanifest">
+    
+    <!-- Custom Scripts -->
+    <script src="./assets/js/scripts.js"></script>
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.0/dist/cdn.min.js"></script>
+</head>
+<body class="font-poppins antialiased bg-gradient-to-b from-dark to-dark/95">
+    <!-- Header/Navigation -->
+    <header class="fixed w-full z-50 bg-dark/90 backdrop-blur-sm transition-all duration-300" 
+            x-data="headerComponent">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <a href="/" class="flex items-center space-x-2">
+                    <img class="h-8 w-auto" src="./assets/img/logo-light.svg" alt="Reveal logo">
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html#features" class="text-white hover:text-primary-light transition-colors">Features</a>
+                    <a href="index.html#community" class="text-white hover:text-primary-light transition-colors">Community</a>
+                    <a href="index.html#roadmap" class="text-white hover:text-primary-light transition-colors">Roadmap</a>
+                    <a href="index.html#faq" class="text-white hover:text-primary-light transition-colors">FAQ</a>
+                    <a href="/beta.html" class="btn btn-primary auth-button" data-auth-state="signed-out">Join Beta</a>
+                    <a href="/login.html" class="btn btn-outline auth-button" data-auth-state="signed-out">Log In</a>
+                    <div class="flex items-center space-x-3 auth-button hidden" data-auth-state="signed-in">
+                        <a href="/dashboard.html" class="text-white user-profile hover:text-primary-light" data-user-field="email">user@reveal.app</a>
+                        <button onclick="signOut()" class="btn btn-outline">Log Out</button>
                     </div>
                 </div>
-                <nav id="menu1" class="bar bar-1 hidden-xs bg--dark">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-2 col-md-2 hidden-xs">
-                                <div class="bar__module">
-                                    <a href="/">
-                                        <img class="logo logo-dark" alt="Reveal logo" src="img/logo-dark.svg" />
-                                        <img class="logo logo-light" alt="Reveal logo" src="img/logo-light.svg" />
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-lg-10 col-md-10 text-right text-left-xs text-left-sm">
-                                <div class="bar__module">
-                                    <ul class="menu-horizontal text-left">
-                                        <li><a href="/">Home</a></li>
-                                        <li> <a href="index.html#feat">Feature</a> </li>
-                                        <li> <a href="roadmap.html">Roadmap</a> </li>
-                                        <li> <a href="index.html#contact">Contact</a> </li>                                       
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-white" @click="isMobileMenuOpen = !isMobileMenuOpen">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path x-show="!isMobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        <path x-show="isMobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Mobile Navigation -->
+            <div x-show="isMobileMenuOpen" 
+                 x-transition:enter="transition ease-out duration-200"
+                 x-transition:enter-start="opacity-0 -translate-y-4"
+                 x-transition:enter-end="opacity-100 translate-y-0"
+                 x-transition:leave="transition ease-in duration-150"
+                 x-transition:leave-start="opacity-100 translate-y-0"
+                 x-transition:leave-end="opacity-0 -translate-y-4"
+                 class="md:hidden absolute inset-x-0 top-full bg-dark/90 backdrop-blur-sm py-4">
+                <div class="container mx-auto px-4 space-y-4">
+                    <a href="index.html#features" class="block text-white hover:text-primary-light transition-colors">Features</a>
+                    <a href="index.html#community" class="block text-white hover:text-primary-light transition-colors">Community</a>
+                    <a href="index.html#roadmap" class="block text-white hover:text-primary-light transition-colors">Roadmap</a>
+                    <a href="index.html#faq" class="block text-white hover:text-primary-light transition-colors">FAQ</a>
+                    <a href="/beta.html" class="btn btn-primary w-full text-center auth-button" data-auth-state="signed-out">Join Beta</a>
+                    <a href="/login.html" class="btn btn-outline w-full text-center auth-button" data-auth-state="signed-out">Log In</a>
+                    <div class="flex flex-col space-y-3 auth-button hidden" data-auth-state="signed-in">
+                        <a href="/dashboard.html" class="text-white user-profile hover:text-primary-light" data-user-field="email">user@example.com</a>
+                        <button onclick="signOut()" class="btn btn-outline w-full text-center">Log Out</button>
                     </div>
-                </nav>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Privacy Policy Section -->
+    <section class="pt-32 pb-16">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <h1 class="text-4xl font-bold text-white mb-8 text-center">Privacy Policy</h1>
+                
+                <div class="bg-dark/50 backdrop-blur-sm border border-gray-700 rounded-lg p-8 text-gray-300 space-y-6">
+                    <div>
+                        <h2 class="text-2xl font-semibold text-white mb-4">Introduction</h2>
+                        <p>At Reveal, we take your privacy seriously. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our mobile application and website.</p>
+                        <p class="mt-2">Please read this privacy policy carefully. If you do not agree with the terms of this privacy policy, please do not access the application.</p>
+                    </div>
+                    
+                    <div>
+                        <h2 class="text-2xl font-semibold text-white mb-4">Information We Collect</h2>
+                        <p>We may collect information about you in various ways:</p>
+                        <ul class="list-disc pl-6 mt-2 space-y-2">
+                            <li><strong>Personal Data:</strong> Name, email address, and other contact information when you register for an account.</li>
+                            <li><strong>Location Data:</strong> With your permission, we collect location data to provide our core service of tracking your travels.</li>
+                            <li><strong>Usage Data:</strong> Information about how you use our application, including your interactions with features and content.</li>
+                            <li><strong>Device Information:</strong> Information about your mobile device, including device type, operating system, and unique device identifiers.</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h2 class="text-2xl font-semibold text-white mb-4">How We Use Your Information</h2>
+                        <p>We use the information we collect for various purposes, including:</p>
+                        <ul class="list-disc pl-6 mt-2 space-y-2">
+                            <li>To provide and maintain our service</li>
+                            <li>To notify you about changes to our service</li>
+                            <li>To allow you to participate in interactive features of our application</li>
+                            <li>To provide customer support</li>
+                            <li>To gather analysis or valuable information so that we can improve our service</li>
+                            <li>To monitor the usage of our service</li>
+                            <li>To detect, prevent and address technical issues</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h2 class="text-2xl font-semibold text-white mb-4">Data Storage and Security</h2>
+                        <p>We use commercially reasonable methods to secure your personal information. However, please be aware that no method of transmission over the internet or method of electronic storage is 100% secure.</p>
+                    </div>
+                    
+                    <div>
+                        <h2 class="text-2xl font-semibold text-white mb-4">Disclosure of Data</h2>
+                        <p>We may disclose your personal information in the following situations:</p>
+                        <ul class="list-disc pl-6 mt-2 space-y-2">
+                            <li><strong>Legal Requirements:</strong> To comply with a legal obligation</li>
+                            <li><strong>Business Transfers:</strong> In connection with a merger, acquisition, or sale of assets</li>
+                            <li><strong>With Your Consent:</strong> With your explicit consent for other purposes</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h2 class="text-2xl font-semibold text-white mb-4">Your Data Protection Rights</h2>
+                        <p>You have certain data protection rights, including:</p>
+                        <ul class="list-disc pl-6 mt-2 space-y-2">
+                            <li>The right to access, update, or delete your personal information</li>
+                            <li>The right to rectification if your information is inaccurate or incomplete</li>
+                            <li>The right to object to our processing of your personal data</li>
+                            <li>The right to request restriction of processing your personal information</li>
+                            <li>The right to data portability</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h2 class="text-2xl font-semibold text-white mb-4">Children's Privacy</h2>
+                        <p>Our service is not intended for use by children under the age of 13. We do not knowingly collect personally identifiable information from children under 13.</p>
+                    </div>
+                    
+                    <div>
+                        <h2 class="text-2xl font-semibold text-white mb-4">Changes to This Privacy Policy</h2>
+                        <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "effective date" at the top of this Privacy Policy.</p>
+                    </div>
+                    
+                    <div>
+                        <h2 class="text-2xl font-semibold text-white mb-4">Contact Us</h2>
+                        <p>If you have any questions about this Privacy Policy, please contact us at:</p>
+                        <p class="mt-2">Email: <a href="mailto:privacy@revealapp.eu" class="text-primary hover:text-primary-light">privacy@revealapp.eu</a></p>
+                    </div>
+                    
+                    <div class="pt-4 border-t border-gray-700">
+                        <p class="text-sm">Last updated: June 1, 2023</p>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="main-container">
-            <section class="space--xs">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <h1>Privacy policy </h1>
-                            <ol class="breadcrumbs">
-                                <li><a href="/">Home</a></li>
-                                <li>Privacy policy</li>
-                            </ol>
-                        <hr></div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-secondary/40 py-12 text-gray-400">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Footer Column 1 -->
+                <div>
+                    <img class="h-8 w-auto" src="./assets/img/logo-dark.svg" alt="Reveal logo">
+                    <p class="mb-4 mt-4">Transform your everyday travels into epic adventures by connecting your journey with historical explorers.</p>
+                </div>
+                
+                <!-- Footer Column 2 -->
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">Navigation</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html#features" class="hover:text-white transition-colors">Features</a></li>
+                        <li><a href="index.html#community" class="hover:text-white transition-colors">Community</a></li>
+                        <li><a href="index.html#roadmap" class="hover:text-white transition-colors">Roadmap</a></li>
+                        <li><a href="index.html#faq" class="hover:text-white transition-colors">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Footer Column 3 -->
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">Legal</h3>
+                    <ul class="space-y-2">
+                        <li><a href="/terms.html" class="hover:text-white transition-colors">Terms of Service</a></li>
+                        <li><a href="/privacy-policy.html" class="hover:text-white transition-colors">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Footer Column 4 -->
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">Connect</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <a href="https://www.instagram.com/reveal.your.map" target="_blank" rel="noopener" class="social-icon text-white hover:primary/20 hover:text-primary">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.facebook.com/reveal.your.map" target="_blank" rel="noopener" class="social-icon text-white hover:primary/20 hover:text-primary">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/>
+                            </svg>
+                        </a>
+                        <a href="https://t.me/+TPGVN8Iv_Qo0NzI6" target="_blank" rel="noopener" class="social-icon text-white hover:primary/20 hover:text-primary">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.96 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.strava.com/clubs/cyclebratislava-ru" target="_blank" rel="noopener" class="social-icon text-white hover:primary/20 hover:text-primary">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.reddit.com/r/reveal_app/" target="_blank" rel="noopener" class="social-icon text-white hover:primary/20 hover:text-primary">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.linkedin.com/company/reveal-map/" target="_blank" rel="noopener" class="social-icon text-white hover:primary/20 hover:text-primary">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
                     </div>
                 </div>
-            </section>
-            <section>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-12 col-md-12 text-justify">
-                            <p class="lead">Privacy matters but it can be confusing. This page explains our approach to privacy on all our OVVA websites and how it affects you.</p>
-                            <h4>Short version</h4>
-                            <ul class="bullets">
-                                <li>We collect anonymous statistics about your visit, like which of our pages you viewed.</li>
-                                <li>Some 3rd parties like Facebook and Twitter may know you visited this website, if you use their services. We can’t control them but we don’t believe this knowledge poses any threat to you.</li>
-                                <li>If you sign up with us we take great care to keep your information safe and we’ll never share it with others without your express permission.</li>
-                                <li>We never share your data with 3rd parties except to help us deliver our own services.</li>
-                            </ul>
-                            <p>These are just the key points. If you need detail, keep reading.</p>
-                            <h4>Measuring our visitors</h4>
-                            <p>We measure visitors to our website using Google Analytics. This records what pages you view within our site, how you arrived at our site and some basic information about your computer. 
-                                All of that information is anonymous – so we don’t know who you are; just that <em>somebody </em>visited our site.
-                                The information we collect from analytics helps us understand what parts of our sites are doing well, how people arrive at our site and so on. 
-                                Like most websites, we use this information to make our website better.</p>
-                            <p>You can learn more about <a title="Google Analytics' privacy policy" href="http://www.google.com/analytics/learn/privacy.html" target="_blank">Google Analytics</a> 
-                                or <a title="How to opt out of google analytics" href="https://tools.google.com/dlpage/gaoptout" target="_blank">opt out if you wish</a>.</p>
-                            <h4>Facebook, Twitter and other social networks</h4>
-                            <p>These services provide social buttons and similar features which we use on our website – such as the “Like” and “Tweet” buttons.
-                                To do so we embed code that they provide and we do not control ourselves. To function their buttons generally know if you’re logged in; 
-                                for example Facebook use this to say “x of your friends like this”. We do not have any access to that information, nor can we control how those networks use it.
-                                Social networks therefore <em>could </em>know that you’re viewing this website, if you use their services (that isn’t to say they do, but their policies may 
-                                change). As our website is remarkably inoffensive we imagine this is not a concern for most users.</p>
-                            <h4>Discussion comments</h4>
-                            <p>To allow visitors to discuss our blog articles and some web pages we use a discussion system called Disqus.
-                                To do so we embed code that Disqus provide and we do not control ourselves. Disqus anonymously tracks visitors to pages like we do. 
-                                They also remember who you are if you login to any Disqus service, so you can comment on any website using their tool.
-                                Logging in to Disqus can be done in many ways, including via Facebook. If you login via social network, Disqus will be able to link
-                                your activity to that network. In this way, your Disqus activity may be personally identifiable.
-                                Disqus will know what pages you viewed in our site and what you wrote on those comments. Of course all comments you leave are also
-                                publicly visible on the Internet alongside your name, so we do not imagine this is a concern for many people.</p>
-                            <h4>If you sign up for a service</h4>
-                            <p>When you sign up for any of our services – paid or otherwise – we will record specific personal information about you, such as your name and email address.
-                                We will also collect and store information about your use of our services so as to improve them. For example, we keep a log of what features are being used
-                                at any time. We also log account and transaction history for accounting purposes, and to monitor our business activities.</p>
-                            <h4>Emails</h4>
-                            <p>We may send you email notifications regarding your service (such as invoices) or which you have specifically requested (such as newsletters 
-                                or notifications when a report is completed). You have the ability to opt out of any of this communication at any time.
-                                We will <em>never </em>provide your personal information or email address to any third parties except where they are specifically employed 
-                                to help deliver our own services, as detailed above.</p>
-                            <h4>Online payment</h4>
-                            <p>We use a variety of payment providers to bill for our products online. These companies will have access to your personal and payment information. 
-                                When paying by credit card, OVVA themselves do not ever have any access to your credit card details. The third parties we use is PayPal 
-                                (to process credit cards and accept payment via PayPal). We share information with these companies only to the extent necessary for the purposes of processing payments you make via our website.</p>
-                            <h4>Security</h4>
-                            <p>OVVA take many precautions to prevent the loss, misuse or alteration of your personal information. These precautions include:</p>
-                            <ul class="bullets">
-                                <li>Use of SSL encryption for sensitive data</li>
-                                <li>Hardware stored in secured datacentres behind firewalls</li>
-                                <li>All access to information restricted by password and/or secure key</li>
-                                <li>Restrictions to what information can be accessed via any location</li>
-                            </ul>
-                            <p>Whilst we take great care to ensure any confidential information remains protected we cannot guarantee the security of data sent over the Internet.
-                                Of course you are responsible for keeping your password and user details confidential. Nobody at OVVA will ever ask you for your password, 
-                                so please don’t trust anybody asking you for it.</p>
-                            <h4>Data finding</h4>
-                            <p>OVVA makes use of various 3rd party APIs to collect information about websites in various reports. For example we use the Google Maps API to gather local presence information (<a href="http://www.google.com/privacy.html">see Google Map’s privacy policy</a>).</p>
-                            <h4>Updates to this policy</h4>
-                            <p>We may update this privacy policy from time-to-time, particularly as technology changes. You can always check this page for the latest version. We may also notify you of changes to our privacy policy by email.</p>
-                            <h4>Any questions?</h4>
-                            <p>If you have any questions about this privacy policy or your personal data, please write to us by email to <a href="mailto:support@ovva.sk">support@ovva.sk</a> or by post to OVVA, s.r.o., Staré Grunty 18, 841 04 Bratislava - Karlova Ves, Slovakia</p>
-                            <p class="text-right">01.05.2024</p>
-                        </div>
-                    </div>
-                    <!--end of row-->
-                </div>
-                <!--end of container-->
-            </section>
-            <footer class="space--sm footer-1 text-center-xs bg--dark">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <ul class="list-inline list--hover">
-                                <li> <a href="index.html#feat" class="inner-link"><span>Feature</span></a> </li>
-                                <li> <a href="roadmap.html" class="inner-link"><span>Development Roadmap</span></a> </li>
-                                <li> <a href="/" class="inner-link"><span>Our Team</span></a> </li>
-                                <li> <a href="index.html#contact" class="inner-link"><span>Locations</span></a> </li>
-                            </ul>
-                        </div>
-                        <div class="col-sm-6 text-right text-center-sm text-center-xs">
-                            <ul class="social-list list-inline list--hover">
-                                <li><a target="_blank" href="https://www.instagram.com/reveal.your.map"><i class="socicon socicon-instagram icon icon--xs"></i></a></li>
-                                <li><a target="_blank" href="https://www.facebook.com/reveal.your.map"><i class="socicon socicon-facebook icon icon--xs"></i></a></li>
-                                <li><a target="_blank" href="https://t.me/+TPGVN8Iv_Qo0NzI6"><i class="socicon icon socicon-telegram icon--xs"></i></a></li>
-                                <li><a target="_blank" href="https://www.strava.com/clubs/cyclebratislava-ru"><i class="socicon icon socicon-strava icon--xs"></i></a></li>
-                                <li><a target="_blank" href="https://www.reddit.com/r/reveal_app/"><i class="socicon icon socicon-reddit icon--xs"></i></a></li>
-                                <li><a target="_blank" href="https://www.linkedin.com/company/reveal-map/"><i class="socicon socicon-linkedin icon icon--xs"></i></a></li>
-                            </ul>
-                            <div class="modal-instance">  
-                                <a href="#" class="btn btn--icon modal-trigger" href="#" data-notification-link="trigger"> 
-                                    <span class="btn__text"><i class="icon-class icon-Mail"></i>Contact Us</span> </a>
-                                <div class="modal-container">
-                                    <div class="modal-content">
-                                        <div class="boxed boxed--md">
-                                            <h2>Drop us a line</h2>
-                                            <hr class="short">
-                                            <div class="col-10">
-                                                Reach us on social media pagest or drop by anytime, we endeavour to answer all enquiries within 24 hours on business days.
-                                                <br><br>
-                                            </div>    
-                                            <div class="col-12">
-                                                <form class="text-left form-email row mx-0" data-success="Thanks for your enquiry, we'll be in touch shortly." data-error="Please fill in all fields correctly." novalidate="true">
-                                                    <div class="col-12">
-                                                        <div class="input-icon">
-                                                            <i class="material-icons">person</i>
-                                                            <input type="text" name="name" class="validate-required" placeholder="Your Name">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-12">
-                                                        <div class="input-icon">
-                                                            <i class="material-icons">email</i>
-                                                            <input type="email" name="email" class="validate-required" placeholder="Email Adress">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-12">
-                                                        <label>Message:</label>
-                                                        <textarea rows="6" name="Message" class="validate-required"></textarea>
-                                                    </div>
-                                                    <div class="col-8">
-                                                        <div class="input-checkbox input-checkbox--switch validate-required">
-                                                            <input id="checkbox-switch" type="checkbox" name="agree">
-                                                            <label for="checkbox-switch"></label>
-                                                        </div>
-                                                        <span>I have read and agree to the <a href="privacy-policy.html" target="_blank">terms and conditions</a></span>
-                                                    </div>
-                                                    <div class="col-4">
-                                                        <button type="submit" class="btn btn--primary type--uppercase">Send Enquiry</button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div><!--end of modal instance-->
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12"> <img alt="Image" class="logo" src="img/logo-dark.svg"> 
-                            <span class="type--fine-print">© <span class="update-year"></span> OVVA s.r.o.</span> 
-                            <a class="type--fine-print" href="privacy-policy.html">Privacy Policy</a> 
-                            <a class="type--fine-print" href="terms.html">Terms and Conditions</a> </div>
-                    </div>
-                </div>
-            </footer>
-        </div>
-        <div class="notification pos-bottom col-4 notification--reveal bg--dark border--round" data-animation="from-bottom" data-autoshow="5000" data-notification-link="cookies-1" data-cookie="eu_cookies_message_dismissed">
-            <div class="boxed boxed--border unpad">
-                <div class="container pt-1 pb-1">
-                <div class="row">
-                    <div class="col-1 pt-2 pl-2"><i class="icon icon-class icon-Cookies color--primary-1"></i></div>
-                    <div class="col-10 unpad pl-2">
-                        <span class="color--primary-1">We use cookies to ensure that we give you the best experience on our website. If you continue to use this site we will assume that you are happy with it.&nbsp;</span>
-                    </div>  
-                </div></div>
+            </div>
+            
+            <div class="mt-12 pt-8 border-t border-gray-800 text-center">
+                <p class="text-sm">© <span x-text="new Date().getFullYear()"></span> OVVA s.r.o. All rights reserved.</p>
             </div>
         </div>
-        <!--<div class="loader"></div>-->
-        <a class="back-to-top inner-link" href="#start" data-scroll-class="50vh:active"><i class="stack-interface stack-up-open-big"></i></a>
-        <script src="js/jquery-3.1.1.min.js"></script>
-        <script src="js/smooth-scroll.min.js"></script>
-        <script src="js/scripts.js"></script>
-    </body>
+    </footer>
+
+    <!-- Cookie Notice -->
+    <div x-data="cookieNoticeComponent"
+         x-show="showCookieNotice"
+         x-transition:enter="transition ease-out duration-300"
+         x-transition:enter-start="opacity-0 transform translate-y-full"
+         x-transition:enter-end="opacity-100 transform translate-y-0"
+         x-transition:leave="transition ease-in duration-300"
+         x-transition:leave-start="opacity-100 transform translate-y-0"
+         x-transition:leave-end="opacity-0 transform translate-y-full"
+         class="fixed bottom-0 inset-x-0 pb-2 sm:pb-5 z-50">
+        <div class="max-w-screen-xl mx-auto px-2 sm:px-6 lg:px-8">
+            <div class="p-2 rounded-lg bg-dark/90 backdrop-blur-sm shadow-lg sm:p-3">
+                <div class="flex items-center justify-between flex-wrap">
+                    <div class="w-0 flex-1 flex items-center">
+                        <p class="ml-3 font-medium text-white truncate">
+                            <span class="md:hidden">We use cookies</span>
+                            <span class="hidden md:inline">We use cookies to ensure that we give you the best experience on our website.<br>If you continue to use this site we will assume that you are happy with it.</span>
+                        </p>
+                    </div>
+                    <div class="order-3 mt-2 flex-shrink-0 w-full sm:order-2 sm:mt-0 sm:w-auto">
+                        <div class="rounded-md shadow-sm">
+                            <button @click="acceptCookies()" class="btn btn-primary">Accept</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
 </html>

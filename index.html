@@ -1,498 +1,466 @@
-<!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Reveal - Your personal Age of Discovery</title>
-        <meta name="description" content="Reveal is a mobile application to trace your travels, compare with historical legends, and make your mark on the world map." />
-        <meta name="author" content="OVVA s.r.o.">
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <!-- Start cookieyes banner --> <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/7c6f9767b710e9368710a0ef/script.js"></script> <!-- End cookieyes banner -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reveal - Transform Your Travels into Historical Adventures</title>
+    <meta name="description" content="Reveal transforms your everyday travels into epic adventures by comparing your journeys with historical explorers. Track, discover, and make history." />
+    <meta name="author" content="OVVA s.r.o.">
+    <!-- Tailwind CSS -->
+    <link href="./assets/css/tailwind.css" rel="stylesheet">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="./assets/css/font-poppins.css" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/ico/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/ico/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/ico/favicon-16x16.png">
+    <link rel="manifest" href="./assets/ico/site.webmanifest">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://revealapp.eu">
+    <meta property="og:title" content="Reveal - Transform Your Travels into Historical Adventures">
+    <meta property="og:image" content="https://revealapp.eu/img/og-image.jpg">
+    <meta property="og:description" content="Track your travels, compare with legendary explorers, and create your own history with Reveal.">
+    <!-- JSs -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="./assets/js/firebase-init.js"></script>
+    <script src="./assets/js/scripts.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.0/dist/cdn.min.js"></script>
+    <script type="module" src="./assets/js/main.js"></script>
+</head>
+<body class="font-poppins antialiased bg-gradient-to-b from-dark to-dark/95 text-white">
+    <!-- Header/Navigation -->
+    <header class="fixed w-full z-50 bg-transparent transition-all duration-300" x-data="headerComponent" :class="{'bg-dark/90 backdrop-blur-sm': isScrolled || isMobileMenuOpen}">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <a href="/" class="flex items-center space-x-2"><img class="h-8 w-auto" src="./assets/img/logo-light.svg" alt="Reveal logo"></a>
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#features" class="text-white hover:text-primary-light transition-colors">Features</a>
+                    <a href="#community" class="text-white hover:text-primary-light transition-colors">Community</a>
+                    <a href="#roadmap" class="text-white hover:text-primary-light transition-colors">Roadmap</a>
+                    <a href="#faq" class="text-white hover:text-primary-light transition-colors">FAQ</a>
+                    <a href="/beta.html" class="btn btn-primary auth-button" data-auth-state="signed-out">Join Beta</a>
+                    <a href="/login.html" class="btn btn-outline auth-button" data-auth-state="signed-out">Log In</a>
+                    <div class="flex items-center space-x-3 auth-button hidden" data-auth-state="signed-in">
+                        <a href="/dashboard.html" class="text-white user-profile hover:text-primary-light" data-user-field="email">user@reveal.app</a>
+                        <button onclick="signOut()" class="btn btn-outline">Log Out</button>
+                    </div>
+                </div>
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-white" @click="isMobileMenuOpen = !isMobileMenuOpen">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path x-show="!isMobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        <path x-show="isMobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Mobile Navigation -->
+            <div x-show="isMobileMenuOpen" 
+                 x-transition:enter="transition ease-out duration-200"
+                 x-transition:enter-start="opacity-0 -translate-y-4"
+                 x-transition:enter-end="opacity-100 translate-y-0"
+                 x-transition:leave="transition ease-in duration-150"
+                 x-transition:leave-start="opacity-100 translate-y-0"
+                 x-transition:leave-end="opacity-0 -translate-y-4"
+                 class="md:hidden absolute inset-x-0 top-full bg-dark/90 backdrop-blur-sm py-4">
+                <div class="container mx-auto px-4 space-y-4">
+                    <a href="#features" class="block text-white hover:text-primary-light transition-colors">Features</a>
+                    <a href="#community" class="block text-white hover:text-primary-light transition-colors">Community</a>
+                    <a href="#roadmap" class="block text-white hover:text-primary-light transition-colors">Roadmap</a>
+                    <a href="#faq" class="block text-white hover:text-primary-light transition-colors">FAQ</a>
+                    <a href="/beta.html" class="btn btn-primary w-full text-center auth-button" data-auth-state="signed-out">Join Beta</a>
+                    <a href="/login.html" class="btn btn-outline w-full text-center auth-button" data-auth-state="signed-out">Log In</a>
+                    <div class="flex flex-col space-y-3 auth-button hidden" data-auth-state="signed-in">
+                        <span class="text-white user-profile" data-user-field="email">user@example.com</span>
+                        <button onclick="signOut()" class="btn btn-outline w-full text-center">Log Out</button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Hero Section -->
+    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+        <!-- Video/Image Background with Ken Burns effect -->
+        <div class="absolute inset-0 ken-burns">
+            <img src="./assets/img/drone-4.jpg" alt="Aerial view of a landscape" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/50"></div>
+        </div>
+        <div class="relative container mx-auto px-4 text-center text-white">
+            <h1 class="text-4xl md:text-6xl mb-6">Your new travel lifestyle</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
+                Discover your own adventure. Let Reveal guide you to where the legends walked
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="/beta.html" class="btn btn-primary">Start Your Journey
+                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                </a>
+                <a href="#features" class="btn bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm">Learn More</a>
+            </div>
+        </div>
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#features">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+                </svg>
+            </a>
+        </div>
+    </section>
+    <!-- Features Section -->
+    <section id="features" class="section section-dark">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl mb-4">Rewrite History With Every Step</h2>
+                <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+                    Reveal transforms your everyday travels into epic adventures by connecting your journey with historical explorers.
+                </p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Location Tracking -->
+                <div class="feature-box bg-dark/50 backdrop-blur-sm border-gray-700">
+                    <div class="h-12 w-12 rounded-lg bg-primary/20 flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Smart Location Tracking</h3>
+                    <p class="text-gray-300">
+                        Automatically track and map your journeys with precision, creating a beautiful visualization of your adventures.
+                    </p>
+                </div>
+                <!-- Historical Comparisons -->
+                <div class="feature-box bg-dark/50 backdrop-blur-sm border-gray-700">
+                    <div class="h-12 w-12 rounded-lg bg-primary/20 flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Historical Journey Comparison</h3>
+                    <p class="text-gray-300">
+                        Compare your routes with legendary explorers like Marco Polo, Magellan, and others to see how your paths intersect.
+                    </p>
+                    <span class="inline-block mt-4 px-2 py-1 text-xs font-semibold bg-primary/20 text-primary rounded">New</span>
+                </div>
+                <!-- Achievements -->
+                <div class="feature-box bg-dark/50 backdrop-blur-sm border-gray-700">
+                    <div class="h-12 w-12 rounded-lg bg-primary/20 flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Achievement System</h3>
+                    <p class="text-gray-300">
+                        Earn badges and titles as you discover new places and match historical routes, building your explorer's legacy.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-        <link href="css/theme-tangerine.css" rel="stylesheet" type="text/css" media="all" />
-        <link href="css/stack-interface.css" rel="stylesheet" type="text/css" media="all" />
-        <link href="css/socicon.css" rel="stylesheet" type="text/css" media="all" />
-        <link href="css/iconsmind.css" rel="stylesheet" type="text/css" media="all" />
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-        <link href="css/font-poppins.css" rel="stylesheet" type="text/css">
-        <link href="css/flickity.css" rel="stylesheet" type="text/css" media="all" />
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Stats Section -->
+    <section class="py-20 bg-gradient-primary text-white">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                <div class="p-6">
+                    <div class="text-4xl font-bold mb-2">1500+</div>
+                    <p class="text-lg opacity-90">Places Discovered</p>
+                </div>
+                <div class="p-6">
+                    <div class="text-4xl font-bold mb-2">28</div>
+                    <p class="text-lg opacity-90">Countries Explored</p>
+                </div>
+                <div class="p-6">
+                    <div class="text-4xl font-bold mb-2">5</div>
+                    <p class="text-lg opacity-90">Historical Routes</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <link rel="apple-touch-icon" sizes="180x180" href="ico/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="ico/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="ico/favicon-16x16.png">
-        <link rel="manifest" href="ico/site.webmanifest">
-        <link rel="mask-icon" href="ico/safari-pinned-tab.svg" color="#da532c">
-        <link rel="shortcut icon" href="ico/favicon.ico">
-        <meta name="apple-mobile-web-app-title" content="Reveal">
-        <meta name="application-name" content="Reveal">
-        <meta name="msapplication-TileColor" content="#da532c">
-        <meta name="msapplication-config" content="ico/browserconfig.xml">
-        <meta name="theme-color" content="#ffffff">
-        
-        <meta property="og:type" content="website">
-        <meta property="og:url" content="https://revealapp.eu">
-        <meta property="og:title" content="Reveal - Your personal Age of Discovery">
-        <meta property="og:image" content="https://revealapp.eu/img/og-image.jpg">
-        <meta property="og:site_name" content="Reveal App">
-        <meta property="og:description" content="Reveal is a mobile application to trace your travels, compare with historical legends, and make your mark on the world map.">
-        <meta property="og:locale" content="en">
-        <meta property="og:image:width" content="1300">
-        <meta property="og:image:height" content="630">
-        
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-BPW073ELTK"></script>
-        <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-BPW073ELTK');
-        </script>
-        
-        <!-- Add security headers -->
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:;">
-        <meta http-equiv="X-Content-Type-Options" content="nosniff">
-        <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
-    </head>
-    <body data-smooth-scroll-offset="77">
-        <a id="start"></a>
-        <div class="nav-container">
-            <nav class="bar bar-toggle bg--dark bar--absolute bar--transparent">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-6">
-                            <div class="bar__module">
-                                <a href="index.html"><img class="logo logo-light" alt="Reveal logo" src="img/logo-light.svg"></a>
-                            </div>
+    <!-- Community Section -->
+    <section id="community" class="section bg-secondary-dark">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl mb-6">Gather Your Community, Explore the World</h2>
+                <p class="text-xl text-gray-300 mb-8">
+                    Join a community of passionate adventurers. Sign up to map your travels, share your discoveries, find friends who share your passion, and follow in the footsteps of history's greatest explorers.
+                </p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="https://www.instagram.com/reveal.your.map" target="_blank" rel="noopener" 
+                       class="social-icon bg-primary/20 text-white hover:primary/20 hover:text-primary">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.facebook.com/reveal.your.map" target="_blank" rel="noopener" 
+                       class="social-icon bg-primary/20 text-white hover:primary/20 hover:text-primary">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/>
+                        </svg>
+                    </a>
+                    <a href="https://t.me/+TPGVN8Iv_Qo0NzI6" target="_blank" rel="noopener" 
+                       class="social-icon bg-primary/20 text-white hover:primary/20 hover:text-primary">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.96 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap Section -->
+    <section id="roadmap" class="section bg-secondary/70 backdrop-blur-sm">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl text-white mb-4">Uncharted Territory Ahead</h2>
+                <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+                    Be a pioneer! Help us discover the next great features for Reveal and enhance the adventure for all explorers.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Timeline items -->
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="/roadmap.html" class="btn btn-primary">Development Roadmap</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="section section-dark">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-3xl md:text-4xl text-center mb-12">Frequently Asked Questions</h2>
+                <div class="space-y-6" x-data="{ activeQuestion: null }">
+                    <!-- FAQ Item 1 -->
+                    <div class="bg-dark/50 backdrop-blur-sm border border-gray-700 rounded-lg overflow-hidden">
+                        <button @click="activeQuestion = activeQuestion === 1 ? null : 1" class="flex justify-between items-center w-full px-6 py-4 text-left">
+                            <span class="text-lg font-medium">What is the main purpose of the Reveal app?</span>
+                            <svg class="w-5 h-5 transition-transform duration-200" 
+                                :class="{'rotate-180': activeQuestion === 1}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                        <div x-show="activeQuestion === 1" 
+                            x-transition:enter="transition ease-out duration-200"
+                            x-transition:enter-start="opacity-0 transform -translate-y-4"
+                            x-transition:enter-end="opacity-100 transform translate-y-0"
+                            class="px-6 pb-4">
+                            <p class="text-gray-300">
+                                The Reveal app is designed to track users' locations, allowing them to document their travels and compare their explorations with historical explorers and past empires.
+                            </p>
                         </div>
-                        <div class="col-6 d-flex justify-content-end">
-                            <div class="bar__module">
-                                <a class="menu-toggle pull-right" href="#" data-notification-link="sidebar-menu"> <i class="stack-interface stack-menu"></i> </a>
-                            </div>
+                    </div>
+                    
+                    <!-- FAQ Item 2 -->
+                    <div class="bg-dark/50 backdrop-blur-sm border border-gray-700 rounded-lg overflow-hidden">
+                        <button @click="activeQuestion = activeQuestion === 2 ? null : 2" class="flex justify-between items-center w-full px-6 py-4 text-left">
+                            <span class="text-lg font-medium">How can I stay updated on the app's launch?</span>
+                            <svg class="w-5 h-5 transition-transform duration-200" 
+                                :class="{'rotate-180': activeQuestion === 2}"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                        <div x-show="activeQuestion === 2" 
+                            x-transition:enter="transition ease-out duration-200"
+                            x-transition:enter-start="opacity-0 transform -translate-y-4"
+                            x-transition:enter-end="opacity-100 transform translate-y-0"
+                            class="px-6 pb-4">
+                            <p class="text-gray-300">
+                                You can easily subscribe for updates by providing your name and email address on our landing page. We'll notify you as soon as the app is ready!
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 3 -->
+                    <div class="bg-dark/50 backdrop-blur-sm border border-gray-700 rounded-lg overflow-hidden">
+                        <button @click="activeQuestion = activeQuestion === 3 ? null : 3" class="flex justify-between items-center w-full px-6 py-4 text-left">
+                            <span class="text-lg font-medium">Can I sync the app with my smartwatch or other devices?</span>
+                            <svg class="w-5 h-5 transition-transform duration-200" 
+                                :class="{'rotate-180': activeQuestion === 3}"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                        <div x-show="activeQuestion === 3" 
+                            x-transition:enter="transition ease-out duration-200"
+                            x-transition:enter-start="opacity-0 transform -translate-y-4"
+                            x-transition:enter-end="opacity-100 transform translate-y-0"
+                            class="px-6 pb-4">
+                            <p class="text-gray-300">
+                                This feature is not currently available.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 4 -->
+                    <div class="bg-dark/50 backdrop-blur-sm border border-gray-700 rounded-lg overflow-hidden">
+                        <button @click="activeQuestion = activeQuestion === 4 ? null : 4" class="flex justify-between items-center w-full px-6 py-4 text-left">
+                            <span class="text-lg font-medium">On which platforms will the app be available?</span>
+                            <svg class="w-5 h-5 transition-transform duration-200" 
+                                :class="{'rotate-180': activeQuestion === 4}"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                        <div x-show="activeQuestion === 4" 
+                            x-transition:enter="transition ease-out duration-200"
+                            x-transition:enter-start="opacity-0 transform -translate-y-4"
+                            x-transition:enter-end="opacity-100 transform translate-y-0"
+                            class="px-6 pb-4">
+                            <p class="text-gray-300">
+                                The app will initially launch on Android and as a web version, followed by an iOS release.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 5 -->
+                    <div class="bg-dark/50 backdrop-blur-sm border border-gray-700 rounded-lg overflow-hidden">
+                        <button @click="activeQuestion = activeQuestion === 5 ? null : 5" class="flex justify-between items-center w-full px-6 py-4 text-left"            >
+                            <span class="text-lg font-medium">Does the app track or store my information on servers?</span>
+                            <svg class="w-5 h-5 transition-transform duration-200" 
+                                :class="{'rotate-180': activeQuestion === 5}"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                        <div x-show="activeQuestion === 5" 
+                            x-transition:enter="transition ease-out duration-200"
+                            x-transition:enter-start="opacity-0 transform -translate-y-4"
+                            x-transition:enter-end="opacity-100 transform translate-y-0"
+                            class="px-6 pb-4">
+                            <p class="text-gray-300">
+                                No, the app does not collect or store your travel information or track you in real-time unless you specifically enable this feature.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 6 -->
+                    <div class="bg-dark/50 backdrop-blur-sm border border-gray-700 rounded-lg overflow-hidden">
+                        <button @click="activeQuestion = activeQuestion === 6 ? null : 6" class="flex justify-between items-center w-full px-6 py-4 text-left">
+                            <span class="text-lg font-medium">I have a great idea for a feature! How can I share it?</span>
+                            <svg class="w-5 h-5 transition-transform duration-200" 
+                                :class="{'rotate-180': activeQuestion === 6}"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                        <div x-show="activeQuestion === 6" 
+                            x-transition:enter="transition ease-out duration-200"
+                            x-transition:enter-start="opacity-0 transform -translate-y-4"
+                            x-transition:enter-end="opacity-100 transform translate-y-0"
+                            class="px-6 pb-4">
+                            <p class="text-gray-300">
+                                We welcome your suggestions! You can submit your feature ideas through the form on our landing page. We'll review them and may even include them in our development roadmap.
+                            </p>
                         </div>
                     </div>
                 </div>
-            </nav>
-            <div class="notification pos-right pos-top side-menu bg--white" data-notification-link="sidebar-menu" data-animation="from-right">
-                <div class="side-menu__module pos-vertical-center text-right">
-                    <ul class="menu-vertical">
-                        <li class="h4"> <a href="#feat" class="inner-link">Feature</a> </li>
-                        <li class="h4"> <a href="#contact" class="inner-link">Community</a> </li>
-                        <li class="h4"> <a href="#roadmap" class="inner-link">Roadmap</a> </li>
-                        <li class="h4"> <a href="#faq" class="inner-link">FAQ</a> </li>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-secondary/40 py-12 text-gray-400">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Footer Column 1 -->
+                <div>
+                    <img class="h-8 w-auto" src="./assets/img/logo-dark.svg" alt="Reveal logo">
+                    <p class="mb-4 mt-4">Transform your everyday travels into epic adventures by connecting your journey with historical explorers.</p>
+                </div>
+                <!-- Footer Column 2 -->
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">Navigation</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#features" class="hover:text-white transition-colors">Features</a></li>
+                        <li><a href="#community" class="hover:text-white transition-colors">Community</a></li>
+                        <li><a href="#roadmap" class="hover:text-white transition-colors">Roadmap</a></li>
+                        <li><a href="#faq" class="hover:text-white transition-colors">FAQ</a></li>
                     </ul>
                 </div>
-                <div class="side-menu__module pos-bottom pos-absolute col-12 text-right">
-                    <ul class="social-list list-inline list--hover">
-                        <li><a target="_blank" href="https://t.me/+TPGVN8Iv_Qo0NzI6"><i class="socicon icon socicon-telegram icon--xs"></i></a></li>
-                        <li><a target="_blank" href="https://www.strava.com/clubs/cyclebratislava-ru"><i class="socicon icon socicon-strava icon--xs"></i></a></li>
-                        <li><a target="_blank" href="https://www.reddit.com/r/reveal_app/"><i class="socicon icon socicon-reddit icon--xs"></i></a></li>
-                        <!--li><a target="_blank" href="#"><i class="socicon socicon-twitter icon icon--xs"></i></a></li-->
-                        <li><a target="_blank" href="https://www.facebook.com/reveal.your.map"><i class="socicon socicon-facebook icon icon--xs"></i></a></li>
-                        <li><a target="_blank" href="https://www.instagram.com/reveal.your.map"><i class="socicon socicon-instagram icon icon--xs"></i></a></li>
-                        <li><a target="_blank" href="https://www.linkedin.com/company/reveal-map/"><i class="socicon socicon-linkedin icon icon--xs"></i></a></li>
+                <!-- Footer Column 3 -->
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">Legal</h3>
+                    <ul class="space-y-2">
+                        <li><a href="/terms.html" class="hover:text-white transition-colors">Terms of Service</a></li>
+                        <li><a href="/privacy-policy.html" class="hover:text-white transition-colors">Privacy Policy</a></li>
                     </ul>
                 </div>
-            </div>
-        </div>
-        <div class="main-container">
-            <section class="cover imagebg text-center section--ken-burns height-100" data-overlay="5">
-                <div class="background-image-holder background--top"> <img alt="background" src="img/drone-4.jpg"> </div>
-                <div class="container pos-vertical-center">
-                    <div class="row">
-                        <div class="col-md-12"> <img alt="Image" class="unmarg--bottom" src="img/headline-2.png">
-                            <h3>Discover your own adventure. Let Reveal guide you <br/>to where the legends walked</h3>
-                            <a class="btn btn--primary btn--icon inner-link type--uppercase" href="#feat"><span class="btn__text"><i class="icon-class icon-Magnifi-Glass2"></i>Start Exploring</span> </a>
-                        </div>
+                <!-- Footer Column 4 -->
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">Connect</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <a href="https://www.instagram.com/reveal.your.map" target="_blank" rel="noopener" class="social-icon text-white hover:primary/20 hover:text-primary">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.facebook.com/reveal.your.map" target="_blank" rel="noopener" class="social-icon text-white hover:primary/20 hover:text-primary">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/>
+                            </svg>
+                        </a>
+                        <a href="https://t.me/+TPGVN8Iv_Qo0NzI6" target="_blank" rel="noopener" class="social-icon text-white hover:primary/20 hover:text-primary">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.96 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.strava.com/clubs/cyclebratislava-ru" target="_blank" rel="noopener" class="social-icon text-white hover:primary/20 hover:text-primary">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.reddit.com/r/reveal_app/" target="_blank" rel="noopener" class="social-icon text-white hover:primary/20 hover:text-primary">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.linkedin.com/company/reveal-map/" target="_blank" rel="noopener" class="social-icon text-white hover:primary/20 hover:text-primary">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
                     </div>
-                </div>
-            </section>
-            <section class="text-center bg--dark">
-                <a id="feat"></a>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-10 col-lg-8">
-                            <h2>Awaken Your Inner Explorer</h2>
-                            <p class="lead">Reveal equips you with the tools to chart your course, retrace the steps of legendary explorers, and share your epic adventures.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section class="text-center bg--dark">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="feature feature-3 boxed boxed--lg boxed--border"> <i class="icon icon-Location-2 icon--lg"></i>
-                                <h3><b>Location <br>Tracking</b></h3>
-                                <p>Chronicle your voyages in real-time, pinpointing the exact coordinates of your discoveries</p>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="feature feature-3 boxed boxed--lg boxed--border"> <i class="icon icon-Taj-Mahal icon--lg"></i>
-                                <h3><b>Historical Comparisons</b></h3>
-                                <p>Journey through time! Compare your travels to the paths of renowned explorers and ancient empires</p> <span class="label">New</span> </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="feature feature-3 boxed boxed--lg boxed--border"> <i class="icon icon-Medal-2 icon--lg"></i>
-                                <h3><b>Achievement Milestones</b></h3>
-                                <p>Earn badges and accolades as you conquer new territories and leave your mark on the map.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <a id="contact"></a>
-            <section class="text-center imagebg" data-gradient-bg="#e54d1f,#FAA917,#702200,#8F48BD">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-10 col-lg-8">
-                            <div class="cta">
-                                <h2><b>Gather Your Community, Explore the World</b></h2>
-                                <p class="lead">Join a community of passionate adventurers. Sign up to map your travels, share your discoveries, 
-                                    find friends who share your passion, and follow in the footsteps of history's greatest explorers.</p> 
-                                <a class="btn bg--googleplus btn--icon type--uppercase" href="https://www.instagram.com/reveal.your.map" target="_blank">
-                                    <span class="btn__text"><i class="socicon socicon-instagram"></i>Follow Us</span>
-                                </a>
-                                <br class="hidden-sm hidden-lg hidden-xl">
-                                <a class="btn bg--facebook btn--icon type--uppercase" href="https://www.facebook.com/reveal.your.map" target="_blank">
-                                    <span class="btn__text"><i class="socicon socicon-facebook"></i>Join Us</span>
-                                </a>    
-                    </a> </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section class="text-center bg--dark">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-10 col-lg-8">
-                            <h2>Your Adventures, Shared with the World</h2>
-                            <p class="lead">Compare your travels with fellow explorers and the legends of old.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section class="text-center bg--dark">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="pricing pricing-1 boxed boxed--border boxed--lg">
-                                <h4>Places Visited</h4> <span class="h1 type--bold">1500</span>
-                                <p>Hidden gems and uncharted territories discovered, ready to be shared with your crew</p>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="pricing pricing-1 boxed boxed--border boxed--lg boxed--emphasis">
-                                <h4><br>Countries Visited</h4> <span class="h1 type--bold">28</span>
-                                <p>Explorer milestones unlocked and shared with your fellow adventurers</p> <span class="label">Scratch map</span> </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="pricing pricing-1 boxed boxed--border boxed--lg">
-                                <h4>Historical Comparisons</h4> <span class="h1 type--bold">5</span>
-                                <p> See how your journeys compare to those who came before. Inspire others with your tales of exploration</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section class="text-center bg--secondary">
-                <a id="roadmap"></a>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-10 col-lg-8">
-                            <h2>Uncharted Territory Ahead</h2>
-                            <p class="lead">Be a pioneer! Help us discover the next great features for Reveal and enhance the adventure for all explorers.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section class="bg--secondary">
-                <div class="container">
-                    <div class="process-2 row">
-                        <div class="col-md-3">
-                            <div class="process__item">
-                                <h5>Idea born at 2023<br> 2 team members</h5>
-                                <p> We start working on initial idea to answer key question — "Where I haven't been yet?" </p>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="process__item">
-                                <h5>Succsessfully go through<br> Accelerator program</h5>
-                                <p> In March 2024 team applied for AceON Spring Accelerator program in Bratislava, Slovakia</p>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="process__item">
-                                <h5>Landing page and social<br> network pages launch</h5>
-                                <p> Late spring we participate at Reflect Festival 2024 at Limassol, Cyprys </p>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="process__item">
-                                <h5>Application design<br> ready</h5>
-                                <p> At early summer we got prepared mabile application design </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row mt--2">
-                        <div class="col-6 text-left">
-                            <h5>Development roadmap</h5>
-                        </div>
-                        <div class="col-6 text-right">
-                            <a href="roadmap.html">View more</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section class="text-center bg--dark">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-10 col-lg-8 text-center-xs">
-                            <div class="cta">
-                                <h2>Join the Ranks of Explorers!</h2>
-                                <p class="lead">Download Reveal and team up with like-minded adventurers. Share your stories, 
-                                    compare your discoveries, and see how your explorations measure up against those who blazed the trail before you.</p>
-                                <div class="row justify-content-center">      
-                                    <div class="col-md-4 mb--1">
-                                        <div class="modal-instance block">
-                                            <a class="btn btn--primary btn--icon type--uppercase" href="beta.html">
-                                                <span class="btn__text"><i class="icon-class icon-Download-2"></i>Download now</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 mb--1">
-                                        <div class="modal-instance block">
-                                        <a class="btn btn--secondary-2 btn--icon modal-trigger" href="#" data-modal-index="1">
-                                                <span class="btn__text"><i class="icon-class icon-Information"></i>Learn more</span> </a>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section class="imagebg space--md parallax" data-overlay="8">
-                <a id="faq"></a>
-                <div class="background-image-holder"> <img alt="background" src="img/drone-2.jpg"> </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-4">
-                            <div class="text-block">
-                                <h4>Frequently Asked Questions</h4>
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="text-block">
-                                <h5>What is the main purpose of the Reveal app?</h5>
-                                <p> The Reveal app is designed to track users' locations, allowing them to document their travels and compare their explorations with historical explorers and past empires. </p>
-                            </div>
-                            <div class="text-block">
-                                <h5>How can I stay updated on the app's launch?</h5>
-                                <p> You can easily subscribe for updates by providing your name and email address on our landing page. We'll notify you as soon as the app is ready!</p>
-                            </div>
-                            <div class="text-block">
-                                <h5>Can I sync the app with my smartwatch or other devices?</h5>
-                                <p> This feature is not currently available. </p>
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="text-block">
-                                <h5>On which platforms will the app be available, and what is the release timeline?</h5>
-                                <p> The app will initially launch on Android and as a web version, followed by an iOS release. </p>
-                            </div>
-                            <div class="text-block">
-                                <h5>Does the app track or store my information on servers?</h5>
-                                <p> No, the app does not collect or store your travel information or track you in real-time unless you specifically enable this feature. </p>
-                            </div>
-                            <div class="text-block">
-                                <h5>I have a great idea for a feature! How can I share it?</h5>
-                                <p> We welcome your suggestions! You can submit your feature ideas through the form on our landing page. We'll review them and may even include them in our development roadmap.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <footer class="space--sm footer-1 text-center-xs bg--dark">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <ul class="list-inline list--hover">
-                                <li> <a href="#feat" class="inner-link"><span>Feature</span></a> </li>
-                                <li> <a href="#roadmap" class="inner-link"><span>Development Roadmap</span></a> </li>
-                                <li> <a href="#" class="inner-link"><span>Our Team</span></a> </li>
-                                <li> <a href="#contact" class="inner-link"><span>Locations</span></a> </li>
-                            </ul>
-                        </div>
-                        <div class="col-sm-6 text-right text-center-sm text-center-xs">
-                            <ul class="social-list list-inline list--hover">
-                                <li><a target="_blank" href="https://www.instagram.com/reveal.your.map"><i class="socicon socicon-instagram icon icon--xs"></i></a></li>
-                                <li><a target="_blank" href="https://www.facebook.com/reveal.your.map"><i class="socicon socicon-facebook icon icon--xs"></i></a></li>
-                                <li><a target="_blank" href="https://t.me/+TPGVN8Iv_Qo0NzI6"><i class="socicon icon socicon-telegram icon--xs"></i></a></li>
-                                <li><a target="_blank" href="https://www.strava.com/clubs/cyclebratislava-ru"><i class="socicon icon socicon-strava icon--xs"></i></a></li>
-                                <li><a target="_blank" href="https://www.reddit.com/r/reveal_app/"><i class="socicon icon socicon-reddit icon--xs"></i></a></li>
-                                <li><a target="_blank" href="https://www.linkedin.com/company/reveal-map/"><i class="socicon socicon-linkedin icon icon--xs"></i></a></li>
-                            </ul>
-                            <div class="modal-instance">
-                                <a class="btn btn--icon modal-trigger" href="#" data-modal-index="1">
-                                    <span class="btn__text"><i class="icon-class icon-Mail"></i>Contact Us</span> </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12"> <img alt="Reveal logo" class="logo" src="img/logo-dark.svg"> 
-                            <span class="type--fine-print">© <span class="update-year"></span> OVVA s.r.o.</span> 
-                            <a class="type--fine-print" href="privacy-policy.html">Privacy Policy</a> 
-                            <a class="type--fine-print" href="terms.html">Terms and Conditions</a> </div>
-                    </div>
-                </div>
-            </footer>
-        </div>
-        <div class="all-page-modals">
-            <!--div class="modal-container" data-modal-index="0">
-                <div class="modal-content section-modal">
-                    <section class="unpad ">
-                        <div class="container">
-                            <div class="boxed boxed--lg">
-                                <h2>Public Beta Test</h2>
-                                <hr class="short">
-                                <p class="lead">Dear valued explorers,</p>
-                                <p>Thank you for your interest in our discovery app. We wanted to let you know that 
-                                the public beta test has been postponed. Our team is dedicated to delivering a top-quality 
-                                experience, and we need a bit more time to ensure everything meets our high standards.</p>
-                                <p>We apologize for any inconvenience this delay may cause and appreciate your 
-                                understanding and patience. Our goal is to provide you with a seamless and enjoyable 
-                                experience, and this extra time will allow us to fine-tune the app to meet your expectations.</p>
-                                <p>Thank you for your continued support and enthusiasm. We look forward to sharing 
-                                more updates with you soon and can't wait for you to experience what we've been working on.</p>
-                                <p>Warm regards,<br>The <b>Reveal App</b> Team</p> 
-                            </div>
-                        </div>
-                    </section>
-                </div>
-            </div>-->
-            <div class="modal-container" data-modal-index="1">
-                <div class="modal-content section-modal">
-                    <section class="unpad ">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-md-6 col-12">
-                                    <div class="feature feature-1 text-center">
-                                        <img alt="Image" src="img/web3.jpg">
-                                        <div class="feature__body boxed boxed--lg boxed--border">
-                                            <div class="modal-close modal-close-cross"></div>
-                                            <div class="text-block">
-                                                <h3>Subscribe for updates</h3>
-                                                <p>
-                                                    Strictly useful articles and resources — no spam.
-                                                </p>
-                                            </div>
-                                            <form action="https://revealapp.us7.list-manage.com/subscribe/post?u=8b3555e9e624c387775908698&amp;id=82ba6544e8&amp;f_id=00fd41e4f0" data-success="Thanks for signing up.  Please check your inbox for a confirmation email." data-error="Please provide your name, email address and agree to the terms." method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate form--active" target="_self" novalidate="true">
-                                                <input class="required text" type="text" name="FNAME" id="mce-FNAME" placeholder="Your Name" required="" value="" autocomplete="given-name">
-                                                <input class="required email" type="email" name="EMAIL" id="mce-EMAIL" placeholder="Email Address" required="" value="" autocomplete="email">
-                                                <span><br>By clicking below to submit this form, you acknowledge that
-                                                    <br>the information you provide will be processed in accordance
-                                                    <br> with our <a href="privacy-policy.html" target="_blank">Privacy Policy.</a>
-                                                </span>
-                                                <div style="position: absolute; left: -5000px;" aria-hidden="true">
-                                                    /* real people should not fill this in and expect good things - do not remove this or risk form bot signups */
-                                                    <input type="text" name="b_8b3555e9e624c387775908698_82ba6544e8" tabindex="-1" value="">
-                                                </div>
-                                                <div class="optionalParent">
-                                                    <div class="clear foot">
-                                                        <button type="submit" name="subscribe" id="mc-embedded-subscribe" value="Subscribe" class="btn btn--primary type--uppercase mt--1">Subscribe To Newsletter</button>
-                                                        <br><br>
-                                                        <p style="margin: 0px auto;"><a href="http://eepurl.com/i5Mwto" title="Mailchimp - email marketing made easy and fun" target="_blank"><span style="display: inline-block; background-color: transparent; border-radius: 4px;"><img class="refferal_badge" src="https://digitalasset.intuit.com/render/content/dam/intuit/mc-fe/en_us/images/intuit-mc-rewards-text-dark.svg" alt="Intuit Mailchimp" style="width: 220px; height: 30px; display: flex; padding: 2px 0px; justify-content: center; align-items: center;"></span></a></p>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                    <!--end feature-->
-                                </div>
-                            </div>
-                            <!--end of row-->
-                        </div>
-                        <!--end of container-->
-                    </section>
                 </div>
             </div>
-            <div class="modal-container" data-modal-index="2">
-                <div class="modal-content section-modal">
-                    <section class="unpad ">
-                        <div class="container">
-                            <div class="boxed boxed--md">
-                                <h2>Drop us a line</h2>
-                                <hr class="short">
-                                <div class="col-10">
-                                    Reach us on social media pagest or drop by anytime, we endeavour to answer all enquiries within 24 hours on business days.
-                                    <br><br>
-                                </div>    
-                                <div class="col-12">
-                                    <form class="text-left form-email row mx-0" data-success="Thanks for your enquiry, we'll be in touch shortly." data-error="Please fill in all fields correctly." novalidate="true">
-                                        <div class="col-12">
-                                            <div class="input-icon">
-                                                <i class="material-icons">person</i><input type="text" name="name" class="validate-required" placeholder="Your Name">
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="input-icon">
-                                                <i class="material-icons">email</i><input type="email" name="email" class="validate-required" placeholder="Email Adress">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <label>Message:</label><textarea rows="6" name="Message" class="validate-required"></textarea>
-                                        </div>
-                                        <div class="col-8">
-                                            <span>I have read and agree to the <a href="team.html" target="_blank">terms and conditions</a></span>
-                                        </div>
-                                        <div class="col-4">
-                                            <button type="submit" class="btn btn--primary type--uppercase">Send Enquiry</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                        <!--end of container-->
-                    </section>
+            
+            <div class="mt-12 pt-8 border-t border-gray-800 text-center">
+                <p class="text-sm">© <span x-text="new Date().getFullYear()"></span> OVVA s.r.o. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- Cookie Notice 
+    <div x-data="cookieNoticeComponent"
+         x-show="showCookieNotice" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform translate-y-full" x-transition:enter-end="opacity-100 transform translate-y-0" x-transition:leave="transition ease-in duration-300"
+         x-transition:leave-start="opacity-100 transform translate-y-0" x-transition:leave-end="opacity-0 transform translate-y-full" class="fixed bottom-0 inset-x-0 pb-2 sm:pb-5 z-50">
+        <div class="max-w-screen-xl mx-auto px-2 sm:px-6 lg:px-8">
+            <div class="p-2 rounded-lg bg-dark/90 backdrop-blur-sm shadow-lg sm:p-3">
+                <div class="flex items-center justify-between flex-wrap">
+                    <div class="w-0 flex-1 flex items-center">
+                        <p class="ml-3 font-medium text-white truncate">
+                            <span class="md:hidden">We use cookies</span>
+                            <span class="hidden md:inline">We use cookies to ensure that we give you the best experience on our website.<br>If you continue to use this site we will assume that you are happy with it.</span>
+                        </p>
+                    </div>
+                    <div class="order-3 mt-2 flex-shrink-0 w-full sm:order-2 sm:mt-0 sm:w-auto">
+                        <div class="rounded-md shadow-sm"><button @click="acceptCookies()" class="btn btn-primary">Accept</button></div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="notification pos-bottom col-4 notification--reveal bg--dark border--round" data-animation="from-bottom" data-autoshow="5000" data-notification-link="cookies-1" data-cookie="eu_cookies_message_dismissed">
-            <div class="boxed boxed--border unpad">
-                <div class="container pt-1 pb-1">
-                <div class="row">
-                    <div class="col-1 pt-2 pl-2"><i class="icon icon-class icon-Cookies color--primary-1"></i></div>
-                    <div class="col-10 unpad pl-2">
-                        <span class="color--primary-1">We use cookies to ensure that we give you the best experience on our website. If you continue to use this site we will assume that you are happy with it.&nbsp;</span>
-                    </div>  
-                </div></div>
-            </div>
-        </div>
-        <!--<div class="loader"></div>-->
-        <a class="back-to-top inner-link" href="#start" data-scroll-class="50vh:active">
-            <i class="stack-interface stack-up-open-big"></i>
-        </a>
-        
-        <!-- Load non-critical scripts with defer -->
-        <script defer src="js/jquery-3.1.1.min.js"></script>
-        <script defer src="js/flickity.min.js"></script>
-        <script defer src="js/parallax.js"></script>
-        <script defer src="js/granim.min.js"></script>
-        <script defer src="js/isotope.min.js"></script>
-        <script defer src="js/smooth-scroll.min.js"></script>
-        <script defer src="js/scripts.js"></script>
-
-        <!-- Add service worker for offline capability -->
-        <script>
-            if ('serviceWorker' in navigator) {
-                window.addEventListener('load', () => {
-                    navigator.serviceWorker.register('js/sw.js');
-                });
-            }
-        </script>
-    </body>
-</html>
+    </div> -->
+</body>
+</html> 

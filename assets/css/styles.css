@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles that extend Tailwind */
+@layer components {
+  /* Button styles */
+  .btn {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded font-medium transition-all duration-200;
+  }
+  
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-primary-dark;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary text-white hover:bg-secondary-dark;
+  }
+  
+  .btn-outline {
+    @apply border border-white text-white hover:bg-white/10;
+  }
+  
+  /* Feature box styles */
+  .feature-box {
+    @apply p-6 rounded-lg border border-gray-200 bg-white transition-all duration-200 hover:shadow-lg;
+  }
+  
+  /* Section styles */
+  .section {
+    @apply py-16 md:py-24;
+  }
+  
+  .section-dark {
+    @apply bg-dark text-white;
+  }
+  
+  /* Social icon styles */
+  .social-icon {
+    @apply w-10 h-10 flex items-center justify-center rounded-full transition-all duration-200 hover:bg-gray-100;
+  }
+  
+  .social-icon i {
+    @apply text-base;
+  }
+  
+  /* Gradient background utility */
+  .bg-gradient-primary {
+    @apply bg-gradient-to-r from-primary via-primary-light to-secondary;
+  }
+  
+  /* Ken Burns effect for hero images */
+  .ken-burns {
+    @apply relative overflow-hidden;
+  }
+  
+  .ken-burns img {
+    @apply w-full h-full object-cover transform scale-110 animate-ken-burns;
+  }
+  
+  @keyframes ken-burns {
+    0% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  .animate-ken-burns {
+    animation: ken-burns 20s ease-out forwards;
+  }
+}
+
+/* Custom animations */
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-in-right {
+  animation: fadeInRight 0.5s ease-out forwards;
+}
+
+/* Mobile menu animations */
+.mobile-menu-enter {
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+.mobile-menu-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.mobile-menu-exit {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.mobile-menu-exit-active {
+  opacity: 0;
+  transform: translateX(100%);
+  transition: opacity 300ms, transform 300ms;
+} 

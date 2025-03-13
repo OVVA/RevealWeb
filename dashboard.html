@@ -3,30 +3,44 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Beta access - Reveal</title>
-        <meta name="description" content="Join the Reveal beta program and be among the first to experience our revolutionary travel tracking app." />
+        <title>Dashboard - Reveal</title>
+        <meta name="description" content="Your personal dashboard for tracking adventures with Reveal." />
         <meta name="author" content="OVVA s.r.o.">
+
         <!-- Tailwind CSS -->
         <link href="./assets/css/tailwind.css" rel="stylesheet">
+        
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600;700&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
         <link href="./assets/css/font-poppins.css" rel="stylesheet">
+        
         <!-- Favicon -->
         <link rel="apple-touch-icon" sizes="180x180" href="./assets/ico/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="./assets/ico/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="./assets/ico/favicon-16x16.png">
         <link rel="manifest" href="./assets/ico/site.webmanifest">
+        
+        <!-- Firebase SDK -->
+        <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+        
+        <!-- Firebase initialization (run before modules) -->
+        <script src="./assets/js/firebase-init.js"></script>
+        
         <!-- Custom Scripts -->
         <script src="./assets/js/scripts.js"></script>
         <!-- Alpine.js -->
         <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.0/dist/cdn.min.js"></script>
-        <!-- Start cookieyes banner --> <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/7c6f9767b710e9368710a0ef/script.js"></script> <!-- End cookieyes banner -->
+        
+        <!-- Import main.js module for Firebase auth handling -->
+        <script type="module" src="./assets/js/main.js"></script>
     </head>
-    <body class="font-poppins antialiased bg-gradient-to-b from-dark to-dark/95">
+    <body class="font-poppins antialiased bg-gradient-to-b from-dark to-dark/95 text-white">
         <!-- Header/Navigation -->
-        <header class="fixed w-full z-50 bg-dark/90 backdrop-blur-sm transition-all duration-300" 
-                x-data="headerComponent">
+        <header class="fixed w-full z-50 bg-transparent transition-all duration-300" 
+                x-data="headerComponent" 
+                :class="{'bg-dark/90 backdrop-blur-sm': isScrolled || isMobileMenuOpen}">
             <nav class="container mx-auto px-4 py-4">
                 <div class="flex items-center justify-between">
                     <a href="/" class="flex items-center space-x-2">
@@ -39,9 +53,7 @@
                         <a href="index.html#community" class="text-white hover:text-primary-light transition-colors">Community</a>
                         <a href="index.html#roadmap" class="text-white hover:text-primary-light transition-colors">Roadmap</a>
                         <a href="index.html#faq" class="text-white hover:text-primary-light transition-colors">FAQ</a>
-                        <a href="/beta.html" class="btn btn-primary auth-button" data-auth-state="signed-out">Join Beta</a>
-                        <a href="/login.html" class="btn btn-outline auth-button" data-auth-state="signed-out">Log In</a>
-                        <div class="flex items-center space-x-3 auth-button hidden" data-auth-state="signed-in">
+                        <div class="flex items-center space-x-3">
                             <a href="/dashboard.html" class="text-white user-profile hover:text-primary-light" data-user-field="email">user@reveal.app</a>
                             <button onclick="signOut()" class="btn btn-outline">Log Out</button>
                         </div>
@@ -70,9 +82,7 @@
                         <a href="index.html#community" class="block text-white hover:text-primary-light transition-colors">Community</a>
                         <a href="index.html#roadmap" class="block text-white hover:text-primary-light transition-colors">Roadmap</a>
                         <a href="index.html#faq" class="block text-white hover:text-primary-light transition-colors">FAQ</a>
-                        <a href="/beta.html" class="btn btn-primary w-full text-center auth-button" data-auth-state="signed-out">Join Beta</a>
-                        <a href="/login.html" class="btn btn-outline w-full text-center auth-button" data-auth-state="signed-out">Log In</a>
-                        <div class="flex flex-col space-y-3 auth-button hidden" data-auth-state="signed-in">
+                        <div class="flex flex-col space-y-3">
                             <a href="/dashboard.html" class="text-white user-profile hover:text-primary-light" data-user-field="email">user@example.com</a>
                             <button onclick="signOut()" class="btn btn-outline w-full text-center">Log Out</button>
                         </div>
@@ -81,73 +91,38 @@
             </nav>
         </header>
 
-        <!-- Beta Hero Section with Split Layout -->
-        <section class="min-h-screen flex flex-col md:flex-row">
-            <!-- Left Content Column -->
-            <div class="w-full md:w-1/2 bg-gradient-to-b from-dark to-dark/95 pt-32 pb-16 px-4 md:px-12 lg:px-20 flex items-center">
-                <div class="max-w-xl mx-auto md:mx-0">
-                    <h1 class="text-4xl md:text-5xl font-bold text-white mb-6"><span class="text-primary">Reveal</span> a next-level lifestyle adventure</h1>
-                    <p class="text-xl text-gray-300 mb-4">
-                        Thank you for your interest in our revolutionary travel tracking application.
-                    </p>
-                    <p class="text-gray-400 mb-8">
-                        We wanted to let you know that the public beta test has been postponed. Our team is dedicated to delivering a top-quality 
-                        experience, and we need a bit more time to ensure everything meets our high standards.
-                    </p>
+        <!-- Main Content -->
+        <main class="pt-24 pb-12">
+            <section class="container mx-auto px-4 py-8">
+                <div class="max-w-4xl mx-auto">
+                    <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Your Dashboard</h1>
+                    <p class="text-xl text-gray-300 mb-8">Welcome to your personal adventure tracking dashboard!</p>
                     
-                    <!-- Beta Signup Form -->
-                    <div class="bg-dark/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6">
-                        <h3 class="text-xl font-semibold text-white mb-4">Request Early Access</h3>
-                            <form action="https://formspree.io/f/xnnpqwvb" method="post" class="space-y-4">
+                    <div class="bg-secondary backdrop-blur-sm rounded-lg p-8 mb-8">
+                        <h2 class="text-2xl font-semibold mb-4">Account Information</h2>
+                        <div class="grid md:grid-cols-2 gap-6">
                             <div>
-                                <label for="name" class="block text-sm font-medium text-gray-300 mb-1">Your Name</label>
-                                <input type="text" id="name" name="NAME" required 
-                                       class="w-full px-4 py-2 bg-dark/30 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                                       placeholder="Enter your name">
-                            </div>
-                            
-                            <div>
-                                <label for="email" class="block text-sm font-medium text-gray-300 mb-1">Email Address</label>
-                                <input type="email" id="email" name="EMAIL" required 
-                                       class="w-full px-4 py-2 bg-dark/30 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                                       placeholder="Enter your email">
-                            </div>
-                            
-                            <div class="flex items-start">
-                                <div class="flex items-center h-5">
-                                    <input id="terms" name="group[13737][1]" type="checkbox" required
-                                           class="h-4 w-4 text-primary focus:ring-primary border-gray-600 rounded bg-dark/30">
-                                </div>
-                                <div class="ml-3 text-sm">
-                                    <label for="terms" class="text-gray-300">
-                                        I have read and agree to the 
-                                        <a href="/privacy-policy.html" class="text-primary hover:text-primary-light">terms and conditions</a>
-                                    </label>
-                                </div>
+                                <p class="text-gray-400 mb-1">Email</p>
+                                <p class="text-white text-lg user-profile" data-user-field="email">user@example.com</p>
                             </div>
                             <div>
-                                <button type="submit" class="w-full btn btn-primary">Request Invite</button>
+                                <p class="text-gray-400 mb-1">Account Status</p>
+                                <p class="text-white text-lg">Active</p>
                             </div>
-                        </form>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-secondary/40 backdrop-blur-sm rounded-lg p-8">
+                        <h2 class="text-2xl font-semibold mb-4">Your Recent Adventures</h2>
+                        <p class="text-gray-300 mb-6">You haven't tracked any adventures yet. Start your journey by installing the Reveal app.</p>
+                        
+                        <div class="text-center">
+                            <button class="btn btn-primary">Download App</button>
+                        </div>
                     </div>
                 </div>
-            </div>
-            
-            <!-- Right Image Column -->
-            <div class="hidden md:block w-full md:w-1/2 relative">
-                <div class="absolute inset-0 bg-gradient-to-b from-dark to-transparent z-10 md:h-90"></div>
-                <img src="./assets/img/web3.jpg" alt="Reveal app preview" class="h-full w-full object-cover object-center">
-                <div class="absolute inset-0 bg-dark/30 z-5"></div>
-                <div class="absolute bottom-0 left-0 right-0 p-8 z-20">
-                    <div class="bg-dark/70 backdrop-blur-sm rounded-lg p-6 max-w-md mx-auto">
-                        <h3 class="text-xl font-semibold text-white mb-2">Discover Your Journey</h3>
-                        <p class="text-gray-300">
-                            Reveal transforms your everyday travels into epic adventures by connecting your journey with historical explorers.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
+            </section>
+        </main>
 
         <!-- Footer -->
         <footer class="bg-secondary/40 py-12 text-gray-400">
@@ -155,9 +130,8 @@
                 <div class="grid md:grid-cols-4 gap-8">
                     <!-- Footer Column 1 -->
                     <div>
-                        <h3 class="text-white text-lg font-semibold mb-4">Reveal</h3>
-                        <p class="mb-4">Transform your everyday travels into epic adventures by connecting your journey with historical explorers.</p>
                         <img class="h-8 w-auto" src="./assets/img/logo-dark.svg" alt="Reveal logo">
+                        <p class="mb-4">Transform your everyday travels into epic adventures by connecting your journey with historical explorers.</p>
                     </div>
                     
                     <!-- Footer Column 2 -->
@@ -224,33 +198,17 @@
             </div>
         </footer>
 
-        <!-- Cookie Notice 
-        <div x-data="cookieNoticeComponent"
-             x-show="showCookieNotice"
-             x-transition:enter="transition ease-out duration-300"
-             x-transition:enter-start="opacity-0 transform translate-y-full"
-             x-transition:enter-end="opacity-100 transform translate-y-0"
-             x-transition:leave="transition ease-in duration-300"
-             x-transition:leave-start="opacity-100 transform translate-y-0"
-             x-transition:leave-end="opacity-0 transform translate-y-full"
-             class="fixed bottom-0 inset-x-0 pb-2 sm:pb-5 z-50">
-            <div class="max-w-screen-xl mx-auto px-2 sm:px-6 lg:px-8">
-                <div class="p-2 rounded-lg bg-dark/90 backdrop-blur-sm shadow-lg sm:p-3">
-                    <div class="flex items-center justify-between flex-wrap">
-                        <div class="w-0 flex-1 flex items-center">
-                            <p class="ml-3 font-medium text-white truncate">
-                                <span class="md:hidden">We use cookies</span>
-                                <span class="hidden md:inline">We use cookies to ensure that we give you the best experience on our website.<br>If you continue to use this site we will assume that you are happy with it.</span>
-                            </p>
-                        </div>
-                        <div class="order-3 mt-2 flex-shrink-0 w-full sm:order-2 sm:mt-0 sm:w-auto">
-                            <div class="rounded-md shadow-sm">
-                                <button @click="acceptCookies()" class="btn btn-primary">Accept</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>-->
+        <!-- Auth Protection Script -->
+        <script type="module">
+            import { auth } from './assets/js/firebase-client.js';
+            
+            // Check if user is authenticated
+            auth.onAuthStateChanged((user) => {
+                if (!user) {
+                    // Redirect to login page if not authenticated
+                    window.location.href = '/login.html?redirect=dashboard.html';
+                }
+            });
+        </script>
     </body>
-</html>
+</html> 

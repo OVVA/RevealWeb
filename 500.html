@@ -1,82 +1,60 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>500 - Reveal - Your personal Age of Discovery</title>
-        <meta name="description" content="Reveal is mobile application to trace your travels, compare with historical legends, make your mark on the world map" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-        <link href="css/stack-interface.css" rel="stylesheet" type="text/css" media="all" />
-        <link href="css/theme-tangerine.css" rel="stylesheet" type="text/css" media="all" />
-        <link href="css/custom.css" rel="stylesheet" type="text/css" media="all" />
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:200,300,400,400i,500,600,700" rel="stylesheet">
-        <link rel="shortcut icon" href="ico/favicon.ico">
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-BPW073ELTK"></script>
-        <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-BPW073ELTK');
-        </script>
-    </head>
-    <body data-smooth-scroll-offset="77">
-        <div class="nav-container">
-            <div>
-                <div class="bar bar--sm visible-xs">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-3 col-md-2">
-                                <a href="index.html"> <img class="logo logo-dark" alt="Reveal logo" src="img/logo-dark.svg"> <img class="logo logo-light" alt="Reveal logo" src="img/logo-light.svg"> </a>
-                            </div>
-                            <div class="col-9 col-md-10 text-right">
-                                <a href="#" class="hamburger-toggle" data-toggle-class="#menu1;hidden-xs hidden-sm"> <i class="icon icon--sm stack-interface stack-menu"></i> </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <nav id="menu1" class="bar bar-1 hidden-xs bg--dark bar--absolute bar--transparent">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-1 col-md-2 hidden-xs">
-                                <div class="bar__module">
-                                    <a href="index.html"> <img class="logo logo-dark" alt="Reveal logo" src="img/logo-dark.svg"> <img class="logo logo-light" alt="Reveal logo" src="img/logo-light.svg"> </a>
-                                </div>
-                            </div>
-                            <div class="col-lg-11 col-md-12 text-right text-left-xs text-left-sm">
-                                <div class="bar__module">
-                                    <ul class="menu-horizontal text-left">
-                                        <li class="h4"> <a href="/">Home</a> </li>
-                                        <li class="h4"> <a href="index.html#contact" class="inner-link">Contact</a> </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </nav>
-            </div>
-        </div>
+        <title>Server Error - Reveal</title>
+        <meta name="description" content="Our server is experiencing technical difficulties. Please try again later." />
+        <meta name="author" content="OVVA s.r.o.">
 
-        <div class="main-container">
-            <section class="cover height-100 imagebg text-center" data-overlay="7">
-                <div class="background-image-holder">
-                    <img alt="background" src="img/web4.jpg" />
-                </div>
-                <div class="container pos-vertical-center">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <h1 class="h1--large">500</h1>
-                            <p class="lead">An unexpected error has occured preventing the page from loading.</p>
-                            <a href="index.html">Go back to home page</a>
-                        </div>
+        <!-- Tailwind CSS -->
+        <link href="./assets/css/tailwind.css" rel="stylesheet">
+        
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+        <link href="./assets/css/font-poppins.css" rel="stylesheet">
+        
+        <!-- Favicon -->
+        <link rel="apple-touch-icon" sizes="180x180" href="./assets/ico/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="./assets/ico/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="./assets/ico/favicon-16x16.png">
+        <link rel="manifest" href="./assets/ico/site.webmanifest">
+        
+        <!-- Custom Scripts -->
+        <script src="./assets/js/scripts.js"></script>
+    </head>
+    <body class="font-poppins antialiased">
+        <!-- Full-page background image with overlay -->
+        <div class="fixed inset-0 z-0">
+            <img src="./assets/img/web4.jpg" alt="Background" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-dark/70 backdrop-blur-sm"></div>
+        </div>
+        
+        <!-- 500 Error Content -->
+        <main class="pt-0 pb-0">
+            <div class="bg-gradient-to-b from-dark to-dark/95 min-h-screen">
+                <div class="relative z-10 min-h-screen flex flex-col items-center justify-center px-4 text-center">
+                    <a href="/" class="mb-12">
+                        <img class="h-12 w-auto" src="./assets/img/logo-dark.svg" alt="Reveal logo">
+                    </a>
+                    
+                    <h1 class="text-9xl font-bold text-white mb-4">500</h1>
+                    <h2 class="text-3xl font-semibold text-white mb-6">Server Error</h2>
+                    <p class="text-xl text-gray-300 max-w-md mb-10">
+                        Our server is experiencing technical difficulties. Please try again later or contact support if the problem persists.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="/" class="btn btn-primary px-8">
+                            Return Home
+                        </a>
                     </div>
                 </div>
-            </section>
-        </div>
-        <script src="js/jquery-3.1.1.min.js"></script>
-        <script src="js/parallax.js"></script>
-        <script src="js/smooth-scroll.min.js"></script>
-        <script src="js/scripts.js"></script>
+            </div>
+        </main>
+        
+        <!-- Import main.js module for Firebase auth handling -->
+        <script type="module" src="./assets/js/main.js"></script>
     </body>
 </html>
