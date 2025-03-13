@@ -6,35 +6,25 @@
         <title>Dashboard - Reveal</title>
         <meta name="description" content="Your personal dashboard for tracking adventures with Reveal." />
         <meta name="author" content="OVVA s.r.o.">
-
         <!-- Tailwind CSS -->
         <link href="./assets/css/tailwind.css" rel="stylesheet">
-        
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600;700&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
         <link href="./assets/css/font-poppins.css" rel="stylesheet">
-        
         <!-- Favicon -->
         <link rel="apple-touch-icon" sizes="180x180" href="./assets/ico/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="./assets/ico/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="./assets/ico/favicon-16x16.png">
         <link rel="manifest" href="./assets/ico/site.webmanifest">
-        
         <!-- Firebase SDK -->
         <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
         <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
-        
-        <!-- Firebase initialization (run before modules) -->
         <script src="./assets/js/firebase-init.js"></script>
-        
-        <!-- Custom Scripts -->
         <script src="./assets/js/scripts.js"></script>
-        <!-- Alpine.js -->
         <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.0/dist/cdn.min.js"></script>
-        
-        <!-- Import main.js module for Firebase auth handling -->
         <script type="module" src="./assets/js/main.js"></script>
+        <!-- Start cookieyes banner --> <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/7c6f9767b710e9368710a0ef/script.js"></script> <!-- End cookieyes banner -->
     </head>
     <body class="font-poppins antialiased bg-gradient-to-b from-dark to-dark/95 text-white">
         <!-- Header/Navigation -->
@@ -46,7 +36,6 @@
                     <a href="/" class="flex items-center space-x-2">
                         <img class="h-8 w-auto" src="./assets/img/logo-light.svg" alt="Reveal logo">
                     </a>
-                    
                     <!-- Desktop Navigation -->
                     <div class="hidden md:flex items-center space-x-8">
                         <a href="index.html#features" class="text-white hover:text-primary-light transition-colors">Features</a>
